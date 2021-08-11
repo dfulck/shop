@@ -56,7 +56,7 @@
 
 // List groups in panels
 //
-// By default, space out list group content from panel headings to account for
+// By default, space out list group content from category headings to account for
 // any kind of custom content between the two.
 
 .panel {
@@ -103,7 +103,7 @@
 
 // Tables in panels
 //
-// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// Place a non-bordered `.table` within a category (not within a `.category-body`) and
 // watch it go full width.
 
 .panel {
@@ -216,7 +216,7 @@
 
 // Collapsable panels (aka, accordion)
 //
-// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// Wrap a series of panels in `.category-group` to turn them into an accordion with
 // the help of our collapse JavaScript plugin.
 
 .panel-group {

@@ -234,7 +234,7 @@ test("uniqueId", 5, function ()
     wizard.steps("add", { title: "add" });
     equal($("#" + wizardId + "-t-0").text(), "current step: 1. add", "Valid step id!");
     equal($("#" + wizardId + "-h-0").text(), "add", "Valid title id!");
-    equal($("#" + wizardId + "-p-0").length, 1, "Valid panel id!");
+    equal($("#" + wizardId + "-p-0").length, 1, "Valid category id!");
 
     // Auto Id Test
     $("#qunit-fixture").append($("<div class=\"uniqueIdTest\"></div>"));

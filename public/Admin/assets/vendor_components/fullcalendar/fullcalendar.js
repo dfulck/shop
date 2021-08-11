@@ -3885,7 +3885,7 @@ var View = /** @class */ (function (_super) {
         if (dateMutation) {
             eventInstance.dateProfile = dateMutation.buildNewDateProfile(eventInstance.dateProfile, this.calendar);
         }
-        this.triggerEventDrop(eventInstance, 
+        this.triggerEventDrop(eventInstance,
         // a drop doesn't necessarily mean a date mutation (ex: resource change)
         (dateMutation && dateMutation.dateDelta) || moment.duration(), undoFunc, el, ev);
     };
@@ -14120,7 +14120,7 @@ exports.default = TimeGridFillRenderer;
 /* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* A rectangular panel that is absolutely positioned over other content
+/* A rectangular category that is absolutely positioned over other content
 ------------------------------------------------------------------------------------------------------------------------
 Options:
   - className (string)
@@ -14825,16 +14825,16 @@ Bootstrap3Theme.prototype.classes = {
     stateActive: 'active',
     stateDisabled: 'disabled',
     today: 'alert alert-info',
-    popover: 'panel panel-default',
-    popoverHeader: 'panel-heading',
-    popoverContent: 'panel-body',
+    popover: 'category category-default',
+    popoverHeader: 'category-heading',
+    popoverContent: 'category-body',
     // day grid
     // for left/right border color when border is inset from edges (all-day in agenda view)
-    // avoid `panel` class b/c don't want margins/radius. only border color.
-    headerRow: 'panel-default',
-    dayRow: 'panel-default',
+    // avoid `category` class b/c don't want margins/radius. only border color.
+    headerRow: 'category-default',
+    dayRow: 'category-default',
     // list view
-    listView: 'panel panel-default'
+    listView: 'category category-default'
 };
 Bootstrap3Theme.prototype.baseIconClass = 'glyphicon';
 Bootstrap3Theme.prototype.iconClasses = {

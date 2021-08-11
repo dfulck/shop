@@ -1,7 +1,7 @@
 (function($) {
 
 	/**
-	 * Generate an indented list of links from a nav. Meant for use with panel().
+	 * Generate an indented list of links from a nav. Meant for use with category().
 	 * @return {jQuery} jQuery object.
 	 */
 	$.fn.navList = function() {
@@ -68,13 +68,13 @@
 				// Delay.
 					delay: 0,
 
-				// Hide panel on link click.
+				// Hide category on link click.
 					hideOnClick: false,
 
-				// Hide panel on escape keypress.
+				// Hide category on escape keypress.
 					hideOnEscape: false,
 
-				// Hide panel on swipe.
+				// Hide category on swipe.
 					hideOnSwipe: false,
 
 				// Reset scroll position on hide.
@@ -83,7 +83,7 @@
 				// Reset forms on hide.
 					resetForms: false,
 
-				// Side of viewport the panel will appear.
+				// Side of viewport the category will appear.
 					side: null,
 
 				// Target element for "class".
@@ -160,7 +160,7 @@
 								event.preventDefault();
 								event.stopPropagation();
 
-							// Hide panel.
+							// Hide category.
 								$this._hide();
 
 							// Redirect to href.
@@ -249,12 +249,12 @@
 
 				});
 
-			// Event: Prevent certain events inside the panel from bubbling.
+			// Event: Prevent certain events inside the category from bubbling.
 				$this.on('click touchend touchstart touchmove', function(event) {
 					event.stopPropagation();
 				});
 
-			// Event: Hide panel if a child anchor tag pointing to its ID is clicked.
+			// Event: Hide category if a child anchor tag pointing to its ID is clicked.
 				$this.on('click', 'a[href="#' + id + '"]', function(event) {
 
 					event.preventDefault();
@@ -266,7 +266,7 @@
 
 		// Body.
 
-			// Event: Hide panel on body click/tap.
+			// Event: Hide category on body click/tap.
 				$body.on('click touchend', function(event) {
 					$this._hide(event);
 				});

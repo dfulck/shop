@@ -270,7 +270,7 @@
   @include gradient-vertical($start-color: $color, $end-color: darken($color, 5%));
 }
 
-// Apply the mixin to the panel headings only
+// Apply the mixin to the category headings only
 .panel-default > .panel-heading   { @include panel-heading-styles($panel-default-heading-bg); }
 .panel-primary > .panel-heading   { @include panel-heading-styles($panel-primary-heading-bg); }
 .panel-success > .panel-heading   { @include panel-heading-styles($panel-success-heading-bg); }

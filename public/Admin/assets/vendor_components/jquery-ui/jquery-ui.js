@@ -4444,7 +4444,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 
 		this._super( key, value );
 
-		// Setting collapsible: false while collapsed; open first panel
+		// Setting collapsible: false while collapsed; open first category
 		if ( key === "collapsible" && !value && this.options.active === false ) {
 			this._activate( 0 );
 		}
@@ -4519,7 +4519,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		var options = this.options;
 		this._processPanels();
 
-		// Was collapsed or no panel
+		// Was collapsed or no category
 		if ( ( options.active === false && options.collapsible === true ) ||
 				!this.headers.length ) {
 			options.active = false;
@@ -4529,20 +4529,20 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		} else if ( options.active === false ) {
 			this._activate( 0 );
 
-		// was active, but active panel is gone
+		// was active, but active category is gone
 		} else if ( this.active.length && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
 
-			// all remaining panel are disabled
+			// all remaining category are disabled
 			if ( this.headers.length === this.headers.find( ".ui-state-disabled" ).length ) {
 				options.active = false;
 				this.active = $();
 
-			// activate previous panel
+			// activate previous category
 			} else {
 				this._activate( Math.max( 0, options.active - 1 ) );
 			}
 
-		// was active, active panel still exists
+		// was active, active category still exists
 		} else {
 
 			// make sure active index is correct
@@ -4671,7 +4671,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 	_activate: function( index ) {
 		var active = this._findActive( index )[ 0 ];
 
-		// Trying to activate the already active panel
+		// Trying to activate the already active category
 		if ( active === this.active[ 0 ] ) {
 			return;
 		}
@@ -4768,7 +4768,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		var toShow = data.newPanel,
 			toHide = this.prevShow.length ? this.prevShow : data.oldPanel;
 
-		// Handle activating a panel during the animation for another activation
+		// Handle activating a category during the animation for another activation
 		this.prevShow.add( this.prevHide ).stop( true, true );
 		this.prevShow = toShow;
 		this.prevHide = toHide;
@@ -7295,7 +7295,7 @@ function Datepicker() {
 		altField: "", // Selector for an alternate field to store selected dates into
 		altFormat: "", // The date format to use for the alternate field
 		constrainInput: true, // The input is constrained by the current date format
-		showButtonPanel: false, // True to show button panel, false to not show it
+		showButtonPanel: false, // True to show button category, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false // The initial disabled state
 	};
@@ -17572,7 +17572,7 @@ $.widget( "ui.tabs", {
 		if ( key === "collapsible" ) {
 			this._toggleClass( "ui-tabs-collapsible", null, value );
 
-			// Setting collapsible: false while collapsed; open first panel
+			// Setting collapsible: false while collapsed; open first category
 			if ( !value && this.options.active === false ) {
 				this._activate( 0 );
 			}
@@ -17983,7 +17983,7 @@ $.widget( "ui.tabs", {
 		var anchor,
 			active = this._findActive( index );
 
-		// Trying to activate the already active panel
+		// Trying to activate the already active category
 		if ( active[ 0 ] === this.active[ 0 ] ) {
 			return;
 		}

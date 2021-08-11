@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\home;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.home');
+Route::get('/',[home::class,'home']);
+
+Route::prefix('/panel')->group(function (){
+    Route::get('/admin',function (){ return view('Admin.panel');});
+    Route::resource('categories',CategoryController::class);
 });
-Route::get('/panel',function (){
-    return view('Admin.Panel');
-});
+

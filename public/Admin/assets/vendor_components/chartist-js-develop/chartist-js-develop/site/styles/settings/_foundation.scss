@@ -948,27 +948,27 @@ $button-font-color: $color-black;
 // 21. Panels
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-panel-classes: $include-html-classes;
+// $include-html-category-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color($white, $lightness: -5%);
-// $panel-border-style: solid;
-// $panel-border-size: 1px;
+// $category-bg: scale-color($white, $lightness: -5%);
+// $category-border-style: solid;
+// $category-border-size: 1px;
 
 // We use this % to control how much we darken things on hover
-// $panel-function-factor: -11%;
-// $panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor);
+// $category-function-factor: -11%;
+// $category-border-color: scale-color($category-bg, $lightness: $category-function-factor);
 
 // We use these to set default inner padding and bottom margin
-// $panel-margin-bottom: rem-calc(20);
-// $panel-padding: rem-calc(20);
+// $category-margin-bottom: rem-calc(20);
+// $category-padding: rem-calc(20);
 
 // We use these to set default font colors
-// $panel-font-color: $oil;
-// $panel-font-color-alt: $white;
+// $category-font-color: $oil;
+// $category-font-color-alt: $white;
 
-// $panel-header-adjust: true;
-// $callout-panel-link-color: $primary-color;
+// $category-header-adjust: true;
+// $callout-category-link-color: $primary-color;
 
 // 22. Pricing Tables
 // - - - - - - - - - - - - - - - - - - - - - - - - -
