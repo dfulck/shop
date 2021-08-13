@@ -28,7 +28,7 @@
                                                         <div class="wpb_wrapper">
                                                             <ul>
                                                                 @foreach($category->childiren as $cat)
-                                                                <li class="text  text-bold"><a class="nav-link" style="text-align: center" href="">{{$cat->title}}</a></li>
+                                                                <li class="text  text-bold"><a class="nav-link" style="text-align: center" href="{{route('categories.show',$cat)}}">{{$cat->title}}</a></li>
                                                                     <li class="nav-divider"></li>
                                                                 @endforeach
                                                           </ul>
@@ -45,25 +45,16 @@
                 @endforeach
                 <li id="menu-item-2695" class="menu-item menu-item-has-children animate-dropdown dropdown">
                     <a title="Accessories" data-hover="dropdown" href="product-category.html" data-toggle="dropdown"
-                       class="dropdown-toggle" aria-haspopup="true">Accessories</a>
+                       class="dropdown-toggle" aria-haspopup="true">brands</a>
                     <ul role="menu" class=" dropdown-menu">
-                        <li class="menu-item animate-dropdown"><a title="Cases" href="product-category.html">Cases</a>
+                        @foreach($brands as $brand)
+                        <li class="menu-item animate-dropdown">
+                            <div>
+                            <a title="Cases" href="{{route('brands.show',$brand)}}">{{$brand->name}}</a>
+                            <img width="70" src="/{{str_replace('public','storage',$brand->image)}}" alt="{{$brand->name}}">
+                            </div>
                         </li>
-                        <li class="menu-item animate-dropdown"><a title="Chargers"
-                                                                  href="product-category.html">Chargers</a></li>
-                        <li class="menu-item animate-dropdown"><a title="Headphone Accessories"
-                                                                  href="product-category.html">Headphone Accessories</a>
-                        </li>
-                        <li class="menu-item animate-dropdown"><a title="Headphone Cases" href="product-category.html">Headphone
-                                Cases</a></li>
-                        <li class="menu-item animate-dropdown"><a title="Headphones" href="product-category.html">Headphones</a>
-                        </li>
-                        <li class="menu-item animate-dropdown"><a title="Computer Accessories"
-                                                                  href="product-category.html">Computer Accessories</a>
-                        </li>
-                        <li class="menu-item animate-dropdown"><a title="Laptop Accessories"
-                                                                  href="product-category.html">Laptop Accessories</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
             </ul>
