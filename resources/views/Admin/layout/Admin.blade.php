@@ -500,16 +500,14 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-contacts"></i>
-                        <span>Contact</span>
+                        <span>برند ها</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/contact_app_chat.html"><i class="mdi mdi-toggle-switch-off"></i>Chat app</a></li>
-                        <li><a href="pages/contact_app.html"><i class="mdi mdi-toggle-switch-off"></i>Contact / Employee</a></li>
-                        <li><a href="pages/contact_userlist_grid.html"><i class="mdi mdi-toggle-switch-off"></i>Userlist Grid</a></li>
-                        <li><a href="pages/contact_userlist.html"><i class="mdi mdi-toggle-switch-off"></i>Userlist</a></li>
+                        <li><a href="{{route('brands.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
+                        <li><a href="{{route('brands.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
                     </ul>
                 </li>
 
