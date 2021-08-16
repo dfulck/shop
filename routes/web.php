@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\home;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PictureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +24,7 @@ Route::prefix('/panel')->group(function (){
     Route::get('/admin',function (){ return view('Admin.panel');});
     Route::resource('categories',CategoryController::class);
     Route::resource('brands',BrandController::class);
+    Route::resource('products',ProductController::class);
+    Route::resource('products.pictures',PictureController::class);
 });
 

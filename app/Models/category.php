@@ -19,4 +19,16 @@ class category extends Model
     {
         return $this->hasMany(category::class,'category_id');
     }
+
+    public function child($category)
+    {
+       return category::query()->where('id',$category)->firstOrFail();
+    }
+
+    public function GetAllSubCategoryProduct()
+    {
+        $children_Ids=$this->childiren()->pluck('id');
+
+        return product::query()->whereIn('category_id',$children_Ids)->get();
+    }
 }
