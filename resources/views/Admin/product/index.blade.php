@@ -28,6 +28,7 @@
                                             <th>توضیحات</th>
                                             <th>تصویر</th>
                                             <th>گالری تصاویر</th>
+                                            <th>میزان تخفیف</th>
                                             <th>تاریخ ایجاد</th>
                                             <th>ویرایش</th>
                                             <th>حذف</th>
@@ -50,6 +51,18 @@
                                                     <img width="70" src="{{str_replace('public','/storage',$product->image)}}" alt="{{$product->name}}">
                                                 </th>
                                                 <th><a class="btn btn-success" href="{{route('products.pictures.create',$product)}}">gallery</a></th>
+                                                <th>
+                                                    @if(!$product->discount()->exists())
+                                                    <a class="btn btn-outline-success" href="{{route('products.discounts.create',$product)}}">ایجاد تخفیف</a>
+                                                    @elseif($product->discount()->exists())
+                                                        <p class="text text-center text-bold text-info">{{optional($product->discount)->discount}}%</p>
+                                                        <form class="align-center" action="{{route('products.discounts.destroy',['product'=>$product,'discount'=>$product->discount])}}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <input type="submit" value="delete" class="btn btn-danger ">
+                                                        </form>
+                                                        @endif
+                                                </th>
                                                 <th>{{$product->created_at}}</th>
                                                 <th><a class="btn btn-outline-info"
                                                        href="{{route('products.edit',$product)}}">ویرایش</a></th>

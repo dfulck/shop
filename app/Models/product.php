@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
-
 class product extends Model
 {
     use HasFactory;
@@ -45,4 +44,33 @@ class product extends Model
 
         $picture->delete();
     }
+
+
+    public function discount()
+    {
+        return $this->hasOne(discount::class);
+    }
+
+    public function createDiscount($request)
+    {
+        $this->discount()->create([
+            'discount'=>$request->get('discount'),
+        ]);
+    }
+
+    public function DestroyDiscount()
+    {
+        $this->discount()->delete();
+    }
+
+    public function CostDiscount()
+    {
+        if ($this->discount()->exists()) {
+            return $this->cost - $this->cost * $this->discount->discount / 100;
+        }
+            return $this->cost;
+
+    }
+
+
 }
