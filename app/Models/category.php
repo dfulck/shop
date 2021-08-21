@@ -19,16 +19,22 @@ class category extends Model
     {
         return $this->hasMany(category::class,'category_id');
     }
-
+//for Admin panel dont change
     public function child($category)
     {
        return category::query()->where('id',$category)->firstOrFail();
     }
+    //end
 
-    public function GetAllSubCategoryProduct()
+    public function getAllSubCategoryProductAttribute()
     {
         $children_Ids=$this->childiren()->pluck('id');
 
         return product::query()->whereIn('category_id',$children_Ids)->get();
+    }
+
+    public function getHasChildirenAttribute()
+    {
+       return $this->childiren()->exists();
     }
 }

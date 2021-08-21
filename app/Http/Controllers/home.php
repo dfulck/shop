@@ -12,4 +12,11 @@ class home extends Controller
     {
         return view('client.home');
     }
+
+    public function panel()
+    {
+        return view('Admin.panel',[
+            'user'=>auth()->user()
+        ]);
+    }
 }

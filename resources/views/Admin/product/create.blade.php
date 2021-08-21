@@ -28,17 +28,16 @@
                     <input type="file" name="image" id="image" class="form-control">
                 </div>
                 @foreach($categories as $category)
-                <div class="form-group">
-                    <label class="text-dark font-size-30  text-bold" for="category_id">{{$category->title}}</label>
-
-                    <select class="form-control" name="category_id" id="category_id">
-                        <option value="" disabled selected>دسته بندی مورد نظر را انتخاب کنید</option>
-                        <option value=""  >بدون دسته بندی</option>
-                        @foreach($category->childiren as $cat)
-                            <option value="{{$cat->id}}">{{$cat->title}}</option>
-                        @endforeach
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label class="text-dark font-size-30  text-bold" for="category_id">{{$category->title}}</label>
+                        <select class="form-control" name="category_id" id="category_id">
+                            <option value="" disabled selected>دسته بندی مورد نظر را انتخاب کنید</option>
+                            <option value="{{$category->id}}"  >انتخاب این دسته بندی</option>
+                            @foreach($category->childiren as $cat)
+                                <option value="{{$cat->id}}">{{$cat->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 @endforeach
                 <div class="form-group">
                     <label class="text-dark font-size-30  text-bold" for="brand_id"> برند</label>

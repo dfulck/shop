@@ -35,7 +35,7 @@
 
                         <select class="form-control" name="category_id" id="category_id">
                             <option value="" disabled selected>دسته بندی مورد نظر را انتخاب کنید</option>
-                            <option value=""  >بدون دسته بندی</option>
+                            <option value="{{$category->id}}"  >انتخاب این دسته بندی</option>
                             @foreach($category->childiren as $cat)
                                 <option value="{{$cat->id}}">{{$cat->title}}</option>
                             @endforeach

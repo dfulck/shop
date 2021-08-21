@@ -77,7 +77,7 @@ class ProductController extends Controller
     {
         return view('Admin.product.edit',[
             'product'=>$product,
-            'categories'=>category::all(),
+            'categories'=>category::query()->where('category_id',1)->get(),
             'brands'=>brand::all()
         ]);
     }

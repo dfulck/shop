@@ -21,4 +21,10 @@ class role extends Model
     {
         return $this->belongsToMany(permission::class);
     }
+
+    public static function findByTitle($title)
+    {
+        return self::query()->whereTitle($title)->firstOrFail();
+
+    }
 }

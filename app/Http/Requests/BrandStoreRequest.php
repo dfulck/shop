@@ -25,7 +25,7 @@ class BrandStoreRequest extends FormRequest
     {
         return [
             'name'=>['required'],
-            'image'=>['required','mimes:png,jpg,jpeg,svg,mpeg','max:1024','min:50'],
+            'image'=>['required','mimes:png,jpg,jpeg,svg,mpeg','max:1024','min:5'],
         ];
     }
 }

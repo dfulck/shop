@@ -63,13 +63,18 @@ class product extends Model
         $this->discount()->delete();
     }
 
-    public function CostDiscount()
+    public function getCostWithDiscountAttribute()
     {
         if ($this->discount()->exists()) {
             return $this->cost - $this->cost * $this->discount->discount / 100;
         }
             return $this->cost;
 
+    }
+
+    public function getHasDiscountAttribute()
+    {
+        return $this->discount()->exists();
     }
 
 

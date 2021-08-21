@@ -7,6 +7,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\DiscountController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,16 @@ use App\Http\Controllers\DiscountController;
 |
 */
 
-Route::get('/',[home::class,'home']);
+Route::get('/',[home::class,'home'])->name('home');
 
 Route::prefix('/panel')->group(function (){
-    Route::get('/admin',function (){ return view('Admin.panel');});
+    Route::get('/admin',[home::class,'panel']);
     Route::resource('categories',CategoryController::class);
     Route::resource('brands',BrandController::class);
     Route::resource('products',ProductController::class);
     Route::resource('products.pictures',PictureController::class);
     Route::resource('products.discounts',DiscountController::class);
 });
-
-
+Route::resource('users',userController::class);
+Route::post('/users/verify/{user}',[userController::class,'verify']);
+Route::get('/users/logout/{user}',[userController::class,'logout']);
