@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePropertyGroupsTable extends Migration
+class CreatePropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreatePropertyGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('property_groups', function (Blueprint $table) {
+        Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('property_groups_id')->constrained();
             $table->string('title');
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ class CreatePropertyGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property_groups');
+        Schema::dropIfExists('properties');
     }
 }

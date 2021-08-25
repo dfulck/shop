@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PropertyGroup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\home;
@@ -10,6 +11,8 @@ use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\GainerController;
+use App\Http\Controllers\PropertyGroupController;
+use App\Http\Controllers\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +38,8 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('products.discounts',DiscountController::class);
     Route::resource('roles',RoleController::class);
     Route::resource('user',GainerController::class);
+    Route::resource('propertyGroups',PropertyGroupController::class);
+    Route::resource('properties',PropertyController::class);
 });
 Route::resource('users',userController::class);
 Route::post('/users/verify/{user}',[userController::class,'verify'])->name('users.verify');

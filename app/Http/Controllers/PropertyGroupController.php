@@ -14,7 +14,9 @@ class PropertyGroupController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.PropertyGroup.index',[
+            'properties'=>PropertyGroup::all()
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class PropertyGroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.PropertyGroup.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class PropertyGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        PropertyGroup::query()->create([
+            'title'=>$request->get('title')
+        ]);
+
+        return redirect(route('propertyGroups.index'));
     }
 
     /**
@@ -57,7 +63,9 @@ class PropertyGroupController extends Controller
      */
     public function edit(PropertyGroup $propertyGroup)
     {
-        //
+        return view('Admin.PropertyGroup.edit',[
+            'propertyGroup'=>$propertyGroup
+        ]);
     }
 
     /**
@@ -69,7 +77,12 @@ class PropertyGroupController extends Controller
      */
     public function update(Request $request, PropertyGroup $propertyGroup)
     {
-        //
+        $propertyGroup->update([
+            'title'=>$request->get('title')
+        ]);
+
+        return redirect(route('propertyGroups.index'));
+
     }
 
     /**
@@ -80,6 +93,9 @@ class PropertyGroupController extends Controller
      */
     public function destroy(PropertyGroup $propertyGroup)
     {
-        //
+        $propertyGroup->delete();
+
+        return redirect(route('propertyGroups.index'));
+
     }
 }

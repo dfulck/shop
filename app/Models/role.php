@@ -10,7 +10,7 @@ class role extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
+    protected $guarded = [];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -21,6 +21,14 @@ class role extends Model
     {
         return $this->belongsToMany(permission::class);
     }
+
+    public function HasPermissions($permission)
+    {
+        $parameter =permission::query()->where('title',$permission)->firstOrFail();
+
+        return $this->permissions()->where('id',$parameter->id)->exists();
+
+   }
 
     public static function findByTitle($title)
     {
