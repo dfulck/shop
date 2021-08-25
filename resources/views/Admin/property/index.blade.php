@@ -9,7 +9,7 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border text-center">
-                                <h1 class="box-title text-white text-bold bg-dark">  *  گروه مشخصات   * </h1>
+                                <h1 class="box-title text-white text-bold bg-dark">  *  لیست مشخصات   * </h1>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -18,30 +18,24 @@
                                         <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>PropertyGroup</th>
                                             <th>Property</th>
+                                            <th>PropertyGroup</th>
                                             <th>created at</th>
                                             <th>ویرایش</th>
                                             <th>حذف</th>
                                         </tr>
                                         </thead>
                                         <tbody class="font-size-20 text-purple">
-                                        @foreach($PropertyGroups as $propertyGroup)
+                                        @foreach($properties as $property)
                                             <tr>
-                                                <th>{{$propertyGroup->id}}</th>
-                                                <th>{{$propertyGroup->title}}</th>
-                                                <th>
-                                                    @foreach($properties as $property)
-                                                        @if($property->property_groups_id==$propertyGroup->id)
-                                                    <span class="font-size-10">,{{$property->title}}</span>
-                                                        @endif
-                                                    @endforeach
-                                                </th>
-                                                <th>{{$propertyGroup->created_at}}</th>
+                                                <th>{{$property->id}}</th>
+                                                <th>{{$property->title}}</th>
+                                                <th>-</th>
+                                                <th>{{$property->created_at}}</th>
                                                 <th><a class="btn btn-primary"
-                                                       href="{{route('propertyGroups.edit',$propertyGroup)}}">ویرایش</a></th>
+                                                       href="{{route('properties.edit',$property)}}">ویرایش</a></th>
                                                 <th>
-                                                    <form action="{{route('propertyGroups.destroy',$propertyGroup)}}" method="post">
+                                                    <form action="{{route('properties.destroy',$property)}}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="submit" class="btn btn-danger" value="delete">

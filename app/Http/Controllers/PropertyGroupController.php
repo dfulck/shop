@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\property;
 use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class PropertyGroupController extends Controller
     public function index()
     {
         return view('Admin.PropertyGroup.index',[
-            'properties'=>PropertyGroup::all()
+            'PropertyGroups'=>PropertyGroup::all(),
+            'properties'=>property::all()
         ]);
     }
 

@@ -434,6 +434,20 @@
                         <li><a href="{{route('propertyGroups.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
                     </ul>
                 </li>
+{{--                property--}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>  مشخصات </span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('properties.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
+                        <li><a href="{{route('properties.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                    </ul>
+                </li>
 {{--                roles--}}
                 <li class="treeview">
                     <a href="#">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\property;
+use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -14,7 +15,9 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.property.index',[
+            'properties'=>property::all()
+        ]);
     }
 
     /**
@@ -24,7 +27,9 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.property.create',[
+            'PropertyGroups'=>PropertyGroup::all()
+        ]);
     }
 
     /**
@@ -35,7 +40,12 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        property::query()->create([
+            'title'=>$request->get('title'),
+            'property_groups_id'=>$request->get('property_groups_id')
+        ]);
+
+        return redirect(route('properties.index'));
     }
 
     /**
@@ -57,7 +67,10 @@ class PropertyController extends Controller
      */
     public function edit(property $property)
     {
-        //
+        return view('Admin.property.edit',[
+            'property'=>$property,
+            'PropertyGroups'=>PropertyGroup::all()
+        ]);
     }
 
     /**
@@ -69,7 +82,12 @@ class PropertyController extends Controller
      */
     public function update(Request $request, property $property)
     {
-        //
+        $property->update([
+            'title'=>$request->get('title'),
+            'property_groups_id'=>$request->get('property_groups_id')
+        ]);
+
+        return redirect(route('properties.index'));
     }
 
     /**
@@ -80,6 +98,7 @@ class PropertyController extends Controller
      */
     public function destroy(property $property)
     {
-        //
+        $property->delete();
+        return redirect(route('properties.index'));
     }
 }
