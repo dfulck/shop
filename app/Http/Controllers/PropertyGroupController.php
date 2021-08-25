@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\permission;
-use App\Models\role;
-use App\Models\User;
+use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class PropertyGroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-
-        return view('Admin.role.index',[
-            'roles'=>role::all()
-        ]);
+        //
     }
 
     /**
@@ -29,9 +24,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-                return view('Admin.role.create',[
-                    'permissions'=>permission::all()
-                ]);
+        //
     }
 
     /**
@@ -42,22 +35,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-       $role= role::query()->create([
-            'title'=>$request->get('title')
-        ]);
-
-       $role->permissions()->attach($request->get('permission'));
-
-       return redirect(route('roles.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Http\Response
      */
-    public function show(role $role)
+    public function show(PropertyGroup $propertyGroup)
     {
         //
     }
@@ -65,10 +52,10 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Http\Response
      */
-    public function edit(role $role)
+    public function edit(PropertyGroup $propertyGroup)
     {
         //
     }
@@ -77,10 +64,10 @@ class RoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, role $role)
+    public function update(Request $request, PropertyGroup $propertyGroup)
     {
         //
     }
@@ -88,10 +75,10 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\PropertyGroup  $propertyGroup
      * @return \Illuminate\Http\Response
      */
-    public function destroy(role $role)
+    public function destroy(PropertyGroup $propertyGroup)
     {
         //
     }

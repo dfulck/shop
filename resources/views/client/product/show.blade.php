@@ -36,7 +36,7 @@
                         <div class="box_list_img mt-3 pt-0 pt-md-5 text-center">
                             <ul class="list-inline">
                                 @foreach($product->pictures as $pictures)
-                                <li class="list-inline-item"><img width="100" src="{{str_replace('public','storage',$pictures->path)}}" alt="{{$product->brand->name}}"></li>
+                                <li class="list-inline-item"><img width="100" src="{{str_replace('public','/storage',$pictures->path)}}" alt="{{$product->brand->name}}"></li>
                                 @endforeach
                             </ul>
                         </div>

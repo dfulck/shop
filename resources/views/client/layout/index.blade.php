@@ -59,9 +59,9 @@
                     <div class="dropdown-menu border-0 shadow rounded-0 dropdown-menu_custom text-center"
                          aria-labelledby="dropdownMenuButton">
                         <div class="btn login_box">
-                            <a class=" dropdown-item  dropdown-item-custom py-2 btn btn-info" href="/panel/admin">مشاهده پروفایل</a>
+                            <a class=" dropdown-item  dropdown-item-custom py-2 btn btn-info" href="{{route('Admins.panel')}}">مشاهده پروفایل</a>
                         </div>
-                            <form action="/users/logout/{{auth()->user()->id}}" method="get">
+                            <form action="{{route('users.logout')}}" method="get">
                                 @csrf
                                 <input type="submit" class="btn btn-danger" value="خروج">
                             </form>
@@ -69,37 +69,26 @@
                 </div>
             @else
             <div class="dropdown">
-                <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                <a class="dropdown-toggle bg-white text-bold" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false" style="line-height: 40px!important;">
                     ورود/ثبت نام
                 </a>
                 <div class="dropdown-menu border-0 shadow rounded-0 dropdown-menu_custom text-center"
                      aria-labelledby="dropdownMenuButton">
                     <div class="btn login_box">
-                        <a class="dropdown-item dropdown-item-custom py-2 btn btn-info" href="{{route('users.create')}}">ورود به دیجی کالا</a>
+                        <a class="dropdown-item dropdown-item-custom py-2 btn btn-info" href="{{route('login')}}">ورود به دیجی کالا</a>
                     </div>
                     <ul class="list-inline register">
                         <li class="list-inline-item">کاربر جدید هستید؟</li>
                         <li class="list-inline-item"><a href="{{route('users.create')}}">ثبت نام</a></li>
                     </ul>
-                    <div class="dropdown-divider"></div>
-                    <div class="text-left">
-                        <button onclick="location.href='http://www.google.com'"
-                                class="dropdown-item border-0 dropdown-item_custom" type="button"><i
-                                class="material-icons profile_link pr-2">person</i>پروفایل
-                        </button>
-                        <button onclick="location.href='http://www.google.com'"
-                                class="dropdown-item border-0 dropdown-item_custom" type="button"><i
-                                class="material-icons profile_link pr-2">assignment_turned_in</i>پیگیری سفارش
-                        </button>
-                    </div>
                 </div>
             </div>
             @endauth
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-6 col-sm-2 col-6 text-right">
-            <a href="#" class="btn btn-outline-info"><i class="material-icons shopping_cart">shopping_cart</i> سبد خرید
-                <span>۰</span></a>
+            <a href="/" class="btn btn-outline-info"><i class="material-icons shopping_cart">home</i>خانه
+                <span>*</span></a>
         </div>
 
     </div>

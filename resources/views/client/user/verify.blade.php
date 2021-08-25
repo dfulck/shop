@@ -8,12 +8,12 @@
             <div class="col-sm-12 bg-white">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form class="" action="/users/verify/{{$user->id}}" method="post">
+                        <form class="" action="{{route('users.verify',$users)}}" method="post">
                             @csrf
                             <h1 >احراز ایمیل</h1>
                             <div class="">
                                 <div class="form-group">
-                                    <label for="for-input-email">{{$user->email}}</label>
+                                    <label for="for-input-email">{{$users->email}}</label>
                                     <input type="number" name="code" id="for-input-email" class="form-control" placeholder="take your code for verify">
                                 </div>
                                 <div class="form-group">

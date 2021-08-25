@@ -79,7 +79,7 @@
                     <!-- User Account-->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/Admin/./images/avatar/7.jpg" class="user-image rounded-circle" alt="User Image">
+                            <img src="/Admin/./images/OP.jpg" class="user-image rounded-circle" alt="User Image"><span>  porofile</span>
                         </a>
                         <ul class="dropdown-menu animated flipInY">
                             <!-- User image -->
@@ -87,20 +87,20 @@
                                 <div class="flexbox align-self-center">
                                     <img src="/Admin/./images/avatar/7.jpg" class="float-left rounded-circle" alt="User Image">
                                     <h4 class="user-name align-self-center">
-                                        <span>Samuel Brus</span>
-                                        <small>samuel@gmail.com</small>
+                                        <span>{{$user->name}}</span>
+                                        <small>{{$user->email}}</small>
                                     </h4>
                                 </div>
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-person"></i> My Profile</a>
+                                <a class="dropdown-item" href="{{route('users.index')}}"><i class="ion ion-person"></i> My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-email-unread"></i> Inbox</a>
+                                <a class="dropdown-item" href="{{route('Admins.panel')}}"><i class="ion ion-email-unread"></i> Dashboard</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-settings"></i> Account Setting</a>
+                                <a class="dropdown-item" href="{{route('users.edit',$user)}}"><i class="ion ion-settings"></i> Account Edit</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="{{route('users.logout')}}"><i class="ion-log-out"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
                                 <div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
                             </li>
@@ -406,6 +406,34 @@
 
             <!-- sidebar menu-->
             <ul class="sidebar-menu" data-widget="tree">
+{{--                users--}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>کاربران</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('user.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
+                        <li><a href="{{route('user.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                    </ul>
+                </li>
+{{--                roles--}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>نفش ها</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('roles.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
+                        <li><a href="{{route('roles.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                    </ul>
+                </li>
 {{--                brands--}}
                 <li class="treeview">
                     <a href="#">

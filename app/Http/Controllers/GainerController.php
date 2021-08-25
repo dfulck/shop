@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\permission;
 use App\Models\role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class GainerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-
-        return view('Admin.role.index',[
-            'roles'=>role::all()
+        return view('Admin.gainer.index',[
+            'users'=>User::all()
         ]);
     }
 
@@ -29,9 +27,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-                return view('Admin.role.create',[
-                    'permissions'=>permission::all()
-                ]);
+        return view('Admin.gainer.create');
     }
 
     /**
@@ -42,22 +38,23 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-       $role= role::query()->create([
-            'title'=>$request->get('title')
+        User::query()->create([
+            'name'=>$request->get('name'),
+            'email'=>$request->get('email'),
+            'password'=>bcrypt($request->get('password')),
+            'role_id'=>role::findByTitle('guest')->id
         ]);
 
-       $role->permissions()->attach($request->get('permission'));
-
-       return redirect(route('roles.index'));
+        return redirect(route('gainers.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(role $role)
+    public function show(User $user)
     {
         //
     }
@@ -65,33 +62,43 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(role $role)
+    public function edit(User $user)
     {
-        //
+        return view('Admin.gainer.edit',[
+            'user'=>$user,
+            'roles'=>role::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, role $role)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update([
+            'name'=>$request->get('name'),
+            'email'=>$request->get('email'),
+            'password'=>bcrypt($request->get('password')),
+            'role_id'=>$request->get('role')
+        ]);
+
+        return redirect(route('user.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\role  $role
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(role $role)
+    public function destroy(User $user)
     {
         //
     }

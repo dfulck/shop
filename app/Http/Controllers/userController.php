@@ -19,7 +19,9 @@ class userController extends Controller
      */
     public function index()
     {
-
+        return view('Admin.user.index',[
+            'user'=>auth()->user()
+        ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -88,7 +90,7 @@ class userController extends Controller
     public function show(User $user)
     {
         return view('client.user.verify',[
-            'user'=>$user
+            'users'=>$user
         ]);
     }
 
@@ -100,7 +102,9 @@ class userController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('Admin.user.edit',[
+            'user'=>$user
+        ]);
     }
 
     /**
@@ -112,7 +116,12 @@ class userController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update([
+            'name'=>$request->get('name'),
+            'email'=>$request->get('email'),
+            'password'=>bcrypt($request->get('password')),
+        ]);
+        return redirect(route('Admins.panel'));
     }
 
     /**
@@ -123,7 +132,7 @@ class userController extends Controller
      */
     public function destroy(User $user)
     {
-
+dd('erfan');
     }
 
     public function logout()

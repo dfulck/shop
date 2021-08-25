@@ -1082,6 +1082,7 @@
             <div class="col-12">
                 <section class="slider box_shadow">
                     @foreach($categories as $category)
+                        @if($category->childiren()->exists())
                         <div class="card panel-title-custom">
                             <div class="card-header card-header-custom">
                                 <p>{{$category->title}}</p>
@@ -1124,6 +1125,8 @@
                                 </div>
                             </div>
                         </div>
+
+                    @endif
                     @endforeach
                 </section>
             </div>

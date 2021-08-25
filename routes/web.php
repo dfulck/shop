@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\GainerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +23,19 @@ use App\Http\Controllers\userController;
 */
 
 Route::get('/',[home::class,'home'])->name('home');
+Route::get('/porofile/users/log',[home::class,'log'])->name('login');
+Route::post('/porofile/users/login',[home::class,'login'])->name('users.login');
 
-Route::prefix('/panel')->group(function (){
-    Route::get('/admin',[home::class,'panel']);
+Route::prefix('/panel')->middleware('auth')->group(function (){
+    Route::get('/admin',[home::class,'panel'])->name('Admins.panel');
     Route::resource('categories',CategoryController::class);
     Route::resource('brands',BrandController::class);
     Route::resource('products',ProductController::class);
     Route::resource('products.pictures',PictureController::class);
     Route::resource('products.discounts',DiscountController::class);
+    Route::resource('roles',RoleController::class);
+    Route::resource('user',GainerController::class);
 });
 Route::resource('users',userController::class);
-Route::post('/users/verify/{user}',[userController::class,'verify']);
-Route::get('/users/logout/{user}',[userController::class,'logout']);
+Route::post('/users/verify/{user}',[userController::class,'verify'])->name('users.verify');
+Route::get('/porofile/users/logout/',[userController::class,'logout'])->name('users.logout');
