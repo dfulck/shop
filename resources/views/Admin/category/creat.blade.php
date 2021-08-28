@@ -21,6 +21,17 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    @foreach($properties as $property)
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="properties[]" value="{{$property->id}}" class="custom-control-input"
+                                   id="{{$property->id}}"/>
+                            <label class="custom-control-label pr-4"
+                                   for="{{$property->id}}">{{$property->title}}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="form-group">
                     <input class="form-control btn btn-success" type="submit" value="ارسال">
                 </div>
                 @include('Admin.layout.errors')

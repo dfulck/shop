@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\property;
+use App\Models\Property;
 use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
@@ -16,14 +16,12 @@ class PropertyController extends Controller
     public function index()
     {
         return view('Admin.property.index',[
-            'properties'=>property::all()
+            'properties'=>Property::all()
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -36,13 +34,14 @@ class PropertyController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        property::query()->create([
+
+        Property::query()->create([
             'title'=>$request->get('title'),
-            'property_groups_id'=>$request->get('property_groups_id')
+            'property_group_id'=>$request->get('property_group_id')
         ]);
 
         return redirect(route('properties.index'));
@@ -54,7 +53,7 @@ class PropertyController extends Controller
      * @param  \App\Models\property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show(property $property)
+    public function show(Property $property): \Illuminate\Http\Response
     {
         //
     }
@@ -63,9 +62,9 @@ class PropertyController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\property  $property
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(property $property)
+    public function edit(Property $property)
     {
         return view('Admin.property.edit',[
             'property'=>$property,
@@ -78,13 +77,13 @@ class PropertyController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\property  $property
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, property $property)
+    public function update(Request $request, Property $property)
     {
         $property->update([
             'title'=>$request->get('title'),
-            'property_groups_id'=>$request->get('property_groups_id')
+            'property_group_id'=>$request->get('property_group_id')
         ]);
 
         return redirect(route('properties.index'));
@@ -94,9 +93,9 @@ class PropertyController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\property  $property
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy(property $property)
+    public function destroy(Property $property)
     {
         $property->delete();
         return redirect(route('properties.index'));

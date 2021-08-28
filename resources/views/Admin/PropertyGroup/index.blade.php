@@ -31,10 +31,8 @@
                                                 <th>{{$propertyGroup->id}}</th>
                                                 <th>{{$propertyGroup->title}}</th>
                                                 <th>
-                                                    @foreach($properties as $property)
-                                                        @if($property->property_groups_id==$propertyGroup->id)
+                                                    @foreach($propertyGroup->Properties as $property)
                                                     <span class="font-size-10">,{{$property->title}}</span>
-                                                        @endif
                                                     @endforeach
                                                 </th>
                                                 <th>{{$propertyGroup->created_at}}</th>

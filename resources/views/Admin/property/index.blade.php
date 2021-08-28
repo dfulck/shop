@@ -30,7 +30,7 @@
                                             <tr>
                                                 <th>{{$property->id}}</th>
                                                 <th>{{$property->title}}</th>
-                                                <th>-</th>
+                                                <th>{{$property->PropertyGroup->title}}</th>
                                                 <th>{{$property->created_at}}</th>
                                                 <th><a class="btn btn-primary"
                                                        href="{{route('properties.edit',$property)}}">ویرایش</a></th>

@@ -24,11 +24,6 @@
         <div class="row bg-success">
             <div class="col-lg-4 bg-white">
                 <div class="row">
-                    <div class="col-lg-2 col-2 gallery_options">
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="material-icons">favorite_border</i></a></li>
-                        </ul>
-                    </div>
                     <div class="col-lg-9 col-10">
                         <div class="box_img border-bottom text-center pt-0 pt-md-4">
                             <img src="{{str_replace('public','/storage',$product->image)}}" class="img-fluid">
@@ -97,6 +92,52 @@
                             <i class="material-icons">offline_pin</i>
                             <span>سرویس ویژه دیجی کالا : ۷ روز تضمین تعویض کالا</span>
                         </div>
+                        <hr>
+                        <p>{{$product->HasProductRate($product)}}</p>
+                        <hr>
+                        @auth
+                        <form method="post" action="{{route('product.rate',$product)}}">
+                            @csrf
+                            <div class="form-group">
+                                <h8> میزان رضایت شما از این کالا </h8>
+                            </div>
+                            <div class="form-group">
+                                <ul class="list-inline form-inline ">
+                                    <li class="mx-1" >
+                                        <label class="form-check-label">1
+                                            <input value="1" name="like"  type="radio" class="form-control" href="#">
+                                        </label>
+                                    </li>
+                                    <li  class="mx-1">
+                                        <label class="form-check-label">2
+                                            <input value="2" name="like"  type="radio" class="form-control" href="#">
+                                        </label>
+                                    </li>
+                                    <li class="mx-1" >
+                                        <label class="form-check-label">3
+                                            <input value="3" name="like"  type="radio" class="form-control" href="#">
+                                        </label>
+                                    </li>
+                                    <li class="mx-1" >
+                                        <label class="form-check-label">4
+                                            <input value="4" name="like"  type="radio" class="form-control" href="#">
+                                        </label>
+                                    </li>
+                                    <li class="mx-1" >
+                                        <label class="form-check-label">5
+                                            <input value="5" name="like" type="radio" class="form-control" href="#">
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                          <div class="form-group">
+                              <input type="submit" value="ثبت نظر" class="btn btn-success-outline">
+                          </div>
+                        </form>
+                        @else
+                            <p>لطفا برای نظر دهی به این محصول وارد جساب کاربری شوید</p>
+                            <a class="btn btn-primary" href="{{route('users.create')}}">register/or/login</a>
+                        @endauth
                         <div class="border_bottom mt-3"></div>
                         <div class="product_guarantee mt-2 text-center text-md-left">
                             <ul class="list-inline">

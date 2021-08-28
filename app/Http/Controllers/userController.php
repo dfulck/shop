@@ -19,10 +19,11 @@ class userController extends Controller
      */
     public function index()
     {
-        return view('Admin.user.index',[
-            'user'=>auth()->user()
+        return view('Admin.user.index', [
+            'user' => auth()->user()
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,33 +48,17 @@ class userController extends Controller
             'email' => ['required', 'email']
         ]);
 
-        $otp = random_int(11111, 99999);
+        $user = User::RegisterUser($request);
 
-        $userexsits=User::query()->whereEmail($request->get('email'))->firstOrFail();
 
-        if ($userexsits->exists()){
-            $user = $userexsits;
-            $user->update([
-                'password'=>bcrypt($otp)
-            ]);
-        }else{
-            $user = User::query()->create([
-                'email' => $request->get('email'),
-                'password' => bcrypt($otp) ,
-                'role_id' => role::FindByTitle('guest')->id,
-            ]);
-        }
-
-        Mail::to($user->email)->send(new otpMail($otp));
-
-        return redirect(route('users.show',$user));
+        return redirect(route('users.show', $user));
     }
 
 
-    public function verify(Request $request,User $user)
+    public function verify(Request $request, User $user)
     {
-        if (!Hash::check($request->get('code'),$user->password)){
-            return back()->withErrors(['code'=>'این کد صجیج نمی باشد ']);
+        if (!Hash::check($request->get('code'), $user->password)) {
+            return back()->withErrors(['code' => 'این کد صجیج نمی باشد ']);
         }
 
         auth()->login($user);
@@ -89,8 +74,8 @@ class userController extends Controller
      */
     public function show(User $user)
     {
-        return view('client.user.verify',[
-            'users'=>$user
+        return view('client.user.verify', [
+            'users' => $user
         ]);
     }
 
@@ -102,8 +87,8 @@ class userController extends Controller
      */
     public function edit(User $user)
     {
-        return view('Admin.user.edit',[
-            'user'=>$user
+        return view('Admin.user.edit', [
+            'user' => $user
         ]);
     }
 
@@ -117,9 +102,9 @@ class userController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update([
-            'name'=>$request->get('name'),
-            'email'=>$request->get('email'),
-            'password'=>bcrypt($request->get('password')),
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password')),
         ]);
         return redirect(route('Admins.panel'));
     }
@@ -132,7 +117,7 @@ class userController extends Controller
      */
     public function destroy(User $user)
     {
-dd('erfan');
+        dd('erfan');
     }
 
     public function logout()

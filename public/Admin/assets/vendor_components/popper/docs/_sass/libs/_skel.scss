@@ -541,7 +541,7 @@
 	}
 
 	/// Vendorizes a declaration's property and/or value(s).
-	/// @param {string} $property Property.
+	/// @param {string} $property property.
 	/// @param {mixed} $value String/list of value(s).
 	@mixin vendor($property, $value) {
 

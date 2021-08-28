@@ -17,7 +17,6 @@ class PropertyGroupController extends Controller
     {
         return view('Admin.PropertyGroup.index',[
             'PropertyGroups'=>PropertyGroup::all(),
-            'properties'=>property::all()
         ]);
     }
 
@@ -95,6 +94,8 @@ class PropertyGroupController extends Controller
      */
     public function destroy(PropertyGroup $propertyGroup)
     {
+
+
         $propertyGroup->delete();
 
         return redirect(route('propertyGroups.index'));

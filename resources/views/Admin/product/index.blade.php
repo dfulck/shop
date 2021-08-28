@@ -25,8 +25,8 @@
                                             <th>برند</th>
                                             <th>اسلاگ</th>
                                             <th>قیمت</th>
-                                            <th>توضیحات</th>
                                             <th>تصویر</th>
+                                            <th>ویژگی ها</th>
                                             <th>گالری تصاویر</th>
                                             <th>میزان تخفیف</th>
                                             <th>تاریخ ایجاد</th>
@@ -46,10 +46,10 @@
                                                 <th>{{$product->brand->name}}</th>
                                                 <th>{{$product->slug}}</th>
                                                 <th>{{$product->cost}}</th>
-                                                <th>{{$product->description}}</th>
                                                 <th>
                                                     <img width="70" src="{{str_replace('public','/storage',$product->image)}}" alt="{{$product->name}}">
                                                 </th>
+                                                <th><a class="btn btn-primary" href="{{route('product.properties.create',$product)}}">property</a></th>
                                                 <th><a class="btn btn-success" href="{{route('products.pictures.create',$product)}}">gallery</a></th>
                                                 <th>
                                                     @if(!$product->discount()->exists())

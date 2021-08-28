@@ -37,4 +37,19 @@ class category extends Model
     {
        return $this->childiren()->exists();
     }
+
+    public function propertyGroups()
+    {
+        return $this->belongsToMany(PropertyGroup::class);
+    }
+
+    public function HasPropertyGroup(PropertyGroup $propertyGroup)
+    {
+
+       return $this->propertyGroups()
+            ->where('property_group_id',$propertyGroup->id)
+            ->exists();
+
+
+    }
 }

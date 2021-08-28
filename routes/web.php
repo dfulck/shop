@@ -13,6 +13,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\GainerController;
 use App\Http\Controllers\PropertyGroupController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\ProductPropertyController;
+use App\Http\Controllers\RateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,10 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('user',GainerController::class);
     Route::resource('propertyGroups',PropertyGroupController::class);
     Route::resource('properties',PropertyController::class);
+    Route::resource('product.properties',ProductPropertyController::class);
 });
+Route::post('/product/{product}/rate',[RateController::class,'store'])->name('product.rate');
+Route::get('/panel/products/{product}',[ProductController::class,'show'])->name('products.show');
 Route::resource('users',userController::class);
 Route::post('/users/verify/{user}',[userController::class,'verify'])->name('users.verify');
 Route::get('/porofile/users/logout/',[userController::class,'logout'])->name('users.logout');

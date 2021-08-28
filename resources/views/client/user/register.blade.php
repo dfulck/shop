@@ -14,7 +14,7 @@
                             <div class="">
                                 <div class="form-group">
                                     <label for="for-input-email">email</label>
-                                    <input type="email" name="email" id="for-input-email" class="form-control" placeholder="taputke your email">
+                                    <input type="email" name="email" id="for-input-email" class="form-control" placeholder="write your email">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="form-control btn btn-success" value="register-and-login">

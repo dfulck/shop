@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\category;
+use App\Models\PropertyGroup;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -29,7 +30,8 @@ class CategoryController extends Controller
     public function create()
     {
         return view('Admin.category.creat',[
-            'categories'=>category::all()
+            'categories'=>category::all(),
+            'properties'=>PropertyGroup::all()
         ]);
     }
 
@@ -41,11 +43,15 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        category::query()->create([
+       $category= category::query()->create([
             'title'=>$request->get('title'),
             'category_id'=>$request->get('category_id')
         ]);
+
+       $category->propertyGroups()->attach($request->get('properties'));
+
         return redirect(route('categories.create'));
+
     }
 
     /**
@@ -69,7 +75,8 @@ class CategoryController extends Controller
     {
         return view('Admin.category.edit',[
             'cat'=>$category,
-            'categories'=>category::all()
+            'categories'=>category::all(),
+            'properties'=>PropertyGroup::all()
         ]);
     }
 
@@ -82,10 +89,13 @@ class CategoryController extends Controller
      */
     public function update(CategoryUpdateRequest $request, category $category)
     {
-        $category->update([
+       $category->update([
             'title'=>$request->get('title'),
             'category_id'=>$request->get('category_id'),
         ]);
+
+        $category->propertyGroups()->sync($request->get('properties'));
+
         return redirect(route('categories.index'));
     }
 
@@ -97,10 +107,12 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
+
         $cat=category::query()->where('category_id',$category->id)->exists();
         if ($cat){
         return back()->withErrors('این فیلد سرگروه تعدادی از دسته بندی ها است برای حذف ابتدا دسته بندی ها را خالی از این فیلد اصلی بکنید و مجددا برای حذف اقدام کنید')   ;
         }
+        $category->propertyGroups()->detach();
         $category->delete();
         return redirect(route('categories.index'));
     }

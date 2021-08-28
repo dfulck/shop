@@ -25,12 +25,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(['client.home','client.product.show','client.user.register','client.user.verify','Admin.layout.Admin','client.user.login'],function ($view){
+        view()->composer('client.*',function ($view){
             $view->with([
                 'brands'=>brand::all(),
                 'categories'=>category::query()->where('category_id',1)->get(),
-                'user'=>auth()->user()
                 ]);
+        });
+        view()->composer('Admin.*',function ($view){
+           $view->with([
+               'user'=>auth()->user()
+           ]);
         });
     }
 }

@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group">
                     <label class="text-dark font-size-12  text-bold" for="propertyGroup"> سرگروه مشخصات </label>
-                    <select class="form-control" name="property_groups_id" id="propertyGroup">
+                    <select class="form-control" name="property_group_id" id="propertyGroup">
                         @foreach($PropertyGroups as $propertyGroup)
                             <option
                                 @if($property->property_groups_id==$propertyGroup->id)

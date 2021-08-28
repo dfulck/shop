@@ -13,6 +13,26 @@ class product extends Model
 
     protected $guarded=[];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class)
+            ->withPivot('value')
+            ->withTimestamps();
+    }
+
+    public function HasProductRate(product $product)
+    {
+       $hasProduct=$this->users()->where('product_id',$product->id)->avg('value');
+
+       if (!$hasProduct){
+           return null;
+       }
+
+       return $hasProduct;
+
+
+    }
+
     public function category()
     {
         return $this->belongsTo(category::class);
@@ -77,5 +97,11 @@ class product extends Model
         return $this->discount()->exists();
     }
 
+    public function properties()
+    {
+        return $this->belongsToMany(property::class)
+            ->withPivot('value')
+            ->withTimestamps();
+    }
 
 }
