@@ -15,6 +15,8 @@ use App\Http\Controllers\PropertyGroupController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\ProductPropertyController;
 use App\Http\Controllers\RateController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,8 @@ Route::get('/',[home::class,'home'])->name('home');
 Route::get('/porofile/users/log',[home::class,'log'])->name('login');
 Route::post('/porofile/users/login',[home::class,'login'])->name('users.login');
 
+
+
 Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::get('/admin',[home::class,'panel'])->name('Admins.panel');
     Route::resource('categories',CategoryController::class);
@@ -44,6 +48,8 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('properties',PropertyController::class);
     Route::resource('product.properties',ProductPropertyController::class);
 });
+Route::resource('questions.answer',AnswerController::class);
+Route::resource('product.questions',QuestionController::class);
 Route::post('/product/{product}/rate',[RateController::class,'store'])->name('product.rate');
 Route::get('/panel/products/{product}',[ProductController::class,'show'])->name('products.show');
 Route::resource('users',userController::class);

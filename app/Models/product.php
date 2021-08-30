@@ -13,6 +13,11 @@ class product extends Model
 
     protected $guarded=[];
 
+    public function questions()
+    {
+        return $this->belongsToMany(question::class);
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class)

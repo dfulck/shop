@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\answer;
 use App\Models\brand;
 use App\Models\category;
 use App\Models\product;
+use App\Models\question;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -63,7 +65,8 @@ class ProductController extends Controller
     public function show(product $product)
     {
         return view('client.product.show',[
-            'product'=>$product
+            'product'=>$product,
+            'questions'=>question::all()
         ]);
     }
 

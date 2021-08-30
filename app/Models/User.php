@@ -40,6 +40,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+
+    public function questions()
+    {
+        return $this->belongsToMany(question::class)
+            ->withPivot('answer')
+            ->withTimestamps();
+
+    }
+
     public static function RegisterUser($request)
     {
         $user = null;

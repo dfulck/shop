@@ -31,7 +31,9 @@
                         <div class="box_list_img mt-3 pt-0 pt-md-5 text-center">
                             <ul class="list-inline">
                                 @foreach($product->pictures as $pictures)
-                                <li class="list-inline-item"><img width="100" src="{{str_replace('public','/storage',$pictures->path)}}" alt="{{$product->brand->name}}"></li>
+                                    <li class="list-inline-item"><img width="100"
+                                                                      src="{{str_replace('public','/storage',$pictures->path)}}"
+                                                                      alt="{{$product->brand->name}}"></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -96,44 +98,44 @@
                         <p>{{$product->HasProductRate($product)}}</p>
                         <hr>
                         @auth
-                        <form method="post" action="{{route('product.rate',$product)}}">
-                            @csrf
-                            <div class="form-group">
-                                <h8> میزان رضایت شما از این کالا </h8>
-                            </div>
-                            <div class="form-group">
-                                <ul class="list-inline form-inline ">
-                                    <li class="mx-1" >
-                                        <label class="form-check-label">1
-                                            <input value="1" name="like"  type="radio" class="form-control" href="#">
-                                        </label>
-                                    </li>
-                                    <li  class="mx-1">
-                                        <label class="form-check-label">2
-                                            <input value="2" name="like"  type="radio" class="form-control" href="#">
-                                        </label>
-                                    </li>
-                                    <li class="mx-1" >
-                                        <label class="form-check-label">3
-                                            <input value="3" name="like"  type="radio" class="form-control" href="#">
-                                        </label>
-                                    </li>
-                                    <li class="mx-1" >
-                                        <label class="form-check-label">4
-                                            <input value="4" name="like"  type="radio" class="form-control" href="#">
-                                        </label>
-                                    </li>
-                                    <li class="mx-1" >
-                                        <label class="form-check-label">5
-                                            <input value="5" name="like" type="radio" class="form-control" href="#">
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                          <div class="form-group">
-                              <input type="submit" value="ثبت نظر" class="btn btn-success-outline">
-                          </div>
-                        </form>
+                            <form method="post" action="{{route('product.rate',$product)}}">
+                                @csrf
+                                <div class="form-group">
+                                    <h8> میزان رضایت شما از این کالا</h8>
+                                </div>
+                                <div class="form-group">
+                                    <ul class="list-inline form-inline ">
+                                        <li class="mx-1">
+                                            <label class="form-check-label">1
+                                                <input value="1" name="like" type="radio" class="form-control" href="#">
+                                            </label>
+                                        </li>
+                                        <li class="mx-1">
+                                            <label class="form-check-label">2
+                                                <input value="2" name="like" type="radio" class="form-control" href="#">
+                                            </label>
+                                        </li>
+                                        <li class="mx-1">
+                                            <label class="form-check-label">3
+                                                <input value="3" name="like" type="radio" class="form-control" href="#">
+                                            </label>
+                                        </li>
+                                        <li class="mx-1">
+                                            <label class="form-check-label">4
+                                                <input value="4" name="like" type="radio" class="form-control" href="#">
+                                            </label>
+                                        </li>
+                                        <li class="mx-1">
+                                            <label class="form-check-label">5
+                                                <input value="5" name="like" type="radio" class="form-control" href="#">
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="ثبت نظر" class="btn btn-success-outline">
+                                </div>
+                            </form>
                         @else
                             <p>لطفا برای نظر دهی به این محصول وارد جساب کاربری شوید</p>
                             <a class="btn btn-primary" href="{{route('users.create')}}">register/or/login</a>
@@ -804,16 +806,17 @@
                 <h4 class="font-weight-bold">پرسش و پاسخ</h4>
                 <span class="font-weight-bold">پرسش خود را در مورد محصول مطرح نمایید</span>
                 <div class="box_questions container mt-4">
-                    <form>
+                    <form method="post" action="{{route('product.questions.store',$product)}}">
+                        @csrf
                         <div class="form-group">
-                            <textarea class="form-control" rows="7"></textarea>
+                            <textarea name="question" class="form-control" rows="7"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="ثبت پرسش">
                         </div>
                     </form>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-2 col-12 text-center">
-                                <a href="#" class="btn btn_custom3 btn-lg shadow-sm">ثبت پرسش</a>
-                            </div>
                             <div class="col-md-9 col-12 m-0 p-0 pt-3 pt-md-0 email_check">
                                 <form action="">
                                     <div class="custom-control custom-checkbox">
@@ -845,142 +848,74 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="container box_questions mt-4">
-                            <div class="row">
-                                <div class="col-md-2 bq1 text-center">
-                                    <i class="material-icons">
-                                        contact_support
-                                    </i>
-                                    <br>
-                                    <span class="span1">پرسش</span>
-                                    <br>
-                                    <span class="span2">فرزاد عباسقلی زاده</span>
-                                </div>
-                                <div class="col-md-10 bq2">
-                                    <p>سلام چطوری دو گوشی همزمان پخش میکنه ؟ </p>
-
-                                    <div class="row" style="position: relative;top: 100px">
-                                        <div class="col-md-5 col-6">
-                                    <span class="date"> ۱۶ مهر ۱۳۹۷
-</span>
-                                        </div>
-                                        <div class="col-md-7 col-6 text-right">
-                                            <a href="#" class="d-none d-sm-block">
-                                                به این پرسش پاسخ دهید (۱ پاسخ)
-                                            </a><a href="#" class="d-sm-none d-block">پاسخ</a>
-                                        </div>
+                            @foreach($questions as $question)
+                                <div class="row">
+                                    <div class="col-md-2 bq1 text-center">
+                                        <i class="material-icons">
+                                            contact_support
+                                        </i>
+                                        <br>
+                                        <span class="span1">پرسش</span>
+                                        <br>
+                                        @auth
+                                            <span class="span2">{{auth()->user()->name}}</span>
+                                        @endauth
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 bq1 text-center">
-                                    <i class="material-icons highlight">
-                                        highlight
-                                    </i>
-                                    <br>
-                                    <span class="span1">پاسخ</span>
-                                    <br>
-                                    <span class="span2">حسین زارع</span>
-                                </div>
-                                <div class="col-md-10 bq2 bg-transparent">
-                                    <p>حوه راه اندازی: (خیلی دربارش پرسیده بودند): اول: بلوتوث گوشی خود را خاموش کنید.
-                                        دوم: لطفا
-                                        کلید های چند منظوره در هر دو هدفون را همزمان فشار دهید
-                                    </p>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <div class="row footer">
-                                        <div class="col-md-5 col-12">
-                                    <span class="date">۲۲ مهر ۱۳۹۷
+                                    <div class="col-md-10 bq2">
+                                        <p>{{$question->question}} </p>
+
+                                        <div class="row" style="position: relative;top: 100px">
+                                            <div class="col-md-5 col-6">
+                                    <span class="date">{{$question->created_at}}
 </span>
-                                        </div>
-                                        <div class="col-md-7 col-12 text-right">
-                                            <div class="comments_likes">
-                                        <span class="mr-4 mt-1">
-                                            ایا این پاسخ برایتان مقید بود ؟
-                                        </span>
-                                                <a href="#" class="btn btn-like mt-1 mt-md-0">بله 70</a>
-                                                <a href="#" class="btn btn-like mt-1 mt-md-0">خیر </a>
+                                            </div>
+                                            <div class="col-md-7 col-6 text-right">
+                                                <p class="d-none d-sm-block">
+                                                    به این پرسش پاسخ دهید (۱ پاسخ)
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container box_questions mt-4">
-                            <div class="row">
-                                <div class="col-md-2 bq1 text-center">
-                                    <i class="material-icons">
-                                        contact_support
-                                    </i>
-                                    <br>
-                                    <span class="span1">پرسش</span>
-                                    <br>
-                                    <span class="span2">فرزاد عباسقلی زاده</span>
-                                </div>
-                                <div class="col-md-10 bq2">
-                                    <p>سلام چطوری دو گوشی همزمان پخش میکنه ؟ </p>
-
-                                    <div class="row" style="position: relative;top: 100px">
-                                        <div class="col-md-5 col-6">
-                                    <span class="date"> ۱۶ مهر ۱۳۹۷
-</span>
-                                        </div>
-                                        <div class="col-md-7 col-6 text-right">
-                                            <a href="#" class="d-none d-sm-block">
-                                                به این پرسش پاسخ دهید (۱ پاسخ)
-                                            </a><a href="#" class="d-sm-none d-block">پاسخ</a>
-                                        </div>
+                                    <div class="col-md-2 bq1 text-center">
+                                        <i class="material-icons highlight">
+                                            highlight
+                                        </i>
+                                        <br>
+                                        <span class="span1">پاسخ</span>
+                                        <br>
+                                        @auth
+                                            <span class="span1">{{auth()->user()->name}}</span>
+                                        @endauth
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 bq1 text-center">
-                                    <i class="material-icons highlight">
-                                        highlight
-                                    </i>
-                                    <br>
-                                    <span class="span1">پاسخ</span>
-                                    <br>
-                                    <span class="span2">حسین زارع</span>
-                                </div>
-                                <div class="col-md-10 bq2 bg-transparent">
-                                    <p>حوه راه اندازی: (خیلی دربارش پرسیده بودند): اول: بلوتوث گوشی خود را خاموش کنید.
-                                        دوم: لطفا
-                                        کلید های چند منظوره در هر دو هدفون را همزمان فشار دهید
-                                    </p>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <div class="row footer">
-                                        <div class="col-md-5 col-12">
-                                    <span class="date">۲۲ مهر ۱۳۹۷
-</span>
-                                        </div>
-                                        <div class="col-md-7 col-12 text-right">
-                                            <div class="comments_likes">
-                                        <span class="mr-4 mt-1">
-                                            ایا این پاسخ برایتان مقید بود ؟
-                                        </span>
-                                                <a href="#" class="btn btn-like mt-1 mt-md-0">بله 70</a>
-                                                <a href="#" class="btn btn-like mt-1 mt-md-0">خیر </a>
+                                    <div class="col-md-10 bq2">
+                                        <form action="{{route('questions.answer.store',$question)}}" method="post">
+                                            @csrf
+                                            <label class="font-size-20" for="answer">answer this question</label>
+                                            <div class="form-group">
+                                                <textarea name="answer" class="form-control" id="answer"
+                                                          rows="5"></textarea>
                                             </div>
-                                        </div>
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-info" value="answer">
+                                            </div>
+                                        </form>
                                     </div>
+                                    @foreach($question->getQuestionAnswer($question) as $answer)
+                                        <div class="col-md-2 my-2 text-center">
+                                            @auth
+                                                <span class="text-center bg-dark text-white">{{auth()->user()->name}}</span>
+                                            @endauth
+                                        </div>
+                                        <div class="col-md-10 my-2 ">
+                                            <p class="form-control text-center">{{$answer->pivot->answer}} </p>
+                                        </div>
+                                    @endforeach
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
