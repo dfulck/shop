@@ -434,6 +434,7 @@
                         <li><a href="{{route('propertyGroups.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
                     </ul>
                 </li>
+
 {{--                property--}}
                 <li class="treeview">
                     <a href="#">
@@ -504,7 +505,6 @@
                         <li><a href="{{route('products.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
                     </ul>
                 </li>
-{{--                //--}}
             </ul>
         </section>
     </aside>

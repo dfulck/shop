@@ -20,6 +20,7 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Question this product#</th>
                                             <th>نام محصول</th>
                                             <th>دسته بندی</th>
                                             <th>برند</th>
@@ -38,6 +39,9 @@
                                         @foreach($products as $product)
                                             <tr>
                                                 <th>{{$product->id}}</th>
+                                                <th>
+                                                        <a class="btn btn-info" href="{{route('product.questions.index',$product)}}">Question</a>
+                                                  </th>
                                                 <th>{{$product->name}}</th>
                                                 <th>
                                                     <div class="text-center font-size-20 text-bold text-warning">{{$product->category->parent['title']}}</div>

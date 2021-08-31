@@ -66,7 +66,7 @@ class ProductController extends Controller
     {
         return view('client.product.show',[
             'product'=>$product,
-            'questions'=>question::all()
+            'questions'=>question::orderby('id','DESC')->take('2')->get()
         ]);
     }
 

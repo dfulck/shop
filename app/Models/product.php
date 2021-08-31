@@ -18,6 +18,11 @@ class product extends Model
         return $this->belongsToMany(question::class);
     }
 
+    public function HasQuestionOrderById(product $product)
+    {
+        return $this->questions()->where('product_id',$product->id)->get();
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class)
@@ -108,5 +113,7 @@ class product extends Model
             ->withPivot('value')
             ->withTimestamps();
     }
+
+
 
 }

@@ -15,7 +15,9 @@ class QuestionController extends Controller
      */
     public function index(product $product)
     {
-
+        return view('Admin.product.Question.show', [
+            'product'=>$product
+        ]);
     }
 
     /**
@@ -55,9 +57,12 @@ class QuestionController extends Controller
      * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(question $question,product $product)
+    public function show(product $product,question $question)
     {
-
+        return view('Admin.product.Answer.show',[
+            'question'=>$question,
+            'product'=>$product
+        ]);
     }
 
     /**
@@ -66,9 +71,9 @@ class QuestionController extends Controller
      * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(question $question,product $product)
+    public function edit(product $product,question $question)
     {
-        //
+        dd('edit');
     }
 
     /**
@@ -78,9 +83,9 @@ class QuestionController extends Controller
      * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, question $question,product $product)
+    public function update(Request $request,product $product,question $question)
     {
-        //
+        dd('update');
     }
 
     /**
@@ -89,8 +94,8 @@ class QuestionController extends Controller
      * @param  \App\Models\question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(question $question,product $product)
+    public function destroy(product $product,question $question)
     {
-        //
+        dd('destroy');
     }
 }

@@ -48,8 +48,10 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('properties',PropertyController::class);
     Route::resource('product.properties',ProductPropertyController::class);
 });
+Route::patch('/product/{product}/properties/value',[ProductPropertyController::class,'updateValue'])->name('product.properties.updateValue');
 Route::resource('questions.answer',AnswerController::class);
 Route::resource('product.questions',QuestionController::class);
+Route::resource('product.answers',QuestionController::class);
 Route::post('/product/{product}/rate',[RateController::class,'store'])->name('product.rate');
 Route::get('/panel/products/{product}',[ProductController::class,'show'])->name('products.show');
 Route::resource('users',userController::class);

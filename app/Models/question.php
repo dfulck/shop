@@ -30,4 +30,15 @@ class question extends Model
       return $answers;
     }
 
+    public function HasAnswerThisQuestion(question $question)
+    {
+        $HasAnswer=$this->users()->where('question_id',$question->id)->get();
+
+        if (!$HasAnswer){
+            return null;
+        }
+
+        return $HasAnswer;
+    }
+
 }

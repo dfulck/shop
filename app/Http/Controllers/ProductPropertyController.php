@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\Property;
 
 class ProductPropertyController extends Controller
 {
@@ -18,6 +19,13 @@ class ProductPropertyController extends Controller
     {
         $product->properties()->sync($request->get('properties'));
 
-        return back();
+        return redirect()->back();
+    }
+
+    public function updateValue(Request $request,product $product)
+    {
+        $product->properties()->sync($request->get('properties'));
+
+        return redirect()->back();
     }
 }
