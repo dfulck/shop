@@ -17,6 +17,8 @@ use App\Http\Controllers\ProductPropertyController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\CategoryDiscountController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,9 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('properties',PropertyController::class);
     Route::resource('product.properties',ProductPropertyController::class);
 });
+Route::resource('notifications',NotificationController::class);
+Route::resource('category.discount',CategoryDiscountController::class);
+Route::get('/product/{product}/details',[ProductController::class,'details'])->name('product.details');
 Route::patch('/product/{product}/properties/value',[ProductPropertyController::class,'updateValue'])->name('product.properties.updateValue');
 Route::resource('questions.answer',AnswerController::class);
 Route::resource('product.questions',QuestionController::class);

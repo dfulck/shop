@@ -45,7 +45,7 @@ class CategoryController extends Controller
     {
        $category= category::query()->create([
             'title'=>$request->get('title'),
-            'category_id'=>$request->get('category_id')
+            'category_id'=>$request->get('category_id'),
         ]);
 
        $category->propertyGroups()->attach($request->get('properties'));

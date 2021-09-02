@@ -73,7 +73,8 @@
                     <li class="search-box">
                         <a class="nav-link hidden-sm-down" href="javascript:void(0)"><i class="mdi mdi-magnify"></i></a>
                         <form class="app-search" style="display: none;">
-                            <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                            <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
+                                class="srh-btn"><i class="ti-close"></i></a>
                         </form>
                     </li>
                     <!-- User Account-->
@@ -83,9 +84,11 @@
                         </a>
                         <ul class="dropdown-menu animated flipInY">
                             <!-- User image -->
-                            <li class="user-header bg-img" style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="3">
+                            <li class="user-header bg-img" style="background-image: url(/Admin/./images/user-info.jpg)"
+                                data-overlay="3">
                                 <div class="flexbox align-self-center">
-                                    <img src="/Admin/./images/avatar/7.jpg" class="float-left rounded-circle" alt="User Image">
+                                    <img src="/Admin/./images/avatar/7.jpg" class="float-left rounded-circle"
+                                         alt="User Image">
                                     <h4 class="user-name align-self-center">
                                         <span>{{$user->name}}</span>
                                         <small>{{$user->email}}</small>
@@ -94,15 +97,21 @@
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
-                                <a class="dropdown-item" href="{{route('users.index')}}"><i class="ion ion-person"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My Balance</a>
-                                <a class="dropdown-item" href="{{route('Admins.panel')}}"><i class="ion ion-email-unread"></i> Dashboard</a>
+                                <a class="dropdown-item" href="{{route('users.index')}}"><i class="ion ion-person"></i>
+                                    My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My
+                                    Balance</a>
+                                <a class="dropdown-item" href="{{route('Admins.panel')}}"><i
+                                        class="ion ion-email-unread"></i> Dashboard</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{route('users.edit',$user)}}"><i class="ion ion-settings"></i> Account Edit</a>
+                                <a class="dropdown-item" href="{{route('users.edit',$user)}}"><i
+                                        class="ion ion-settings"></i> Account Edit</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{route('users.logout')}}"><i class="ion-log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="{{route('users.logout')}}"><i class="ion-log-out"></i>
+                                    Logout</a>
                                 <div class="dropdown-divider"></div>
-                                <div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
+                                <div class="p-10"><a href="javascript:void(0)"
+                                                     class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
                             </li>
                         </ul>
                     </li>
@@ -115,7 +124,8 @@
                         <ul class="dropdown-menu animated fadeInDown">
 
                             <li class="header">
-                                <div class="bg-img text-white p-20" style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="5">
+                                <div class="bg-img text-white p-20"
+                                     style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="5">
                                     <div class="flexbox">
                                         <div>
                                             <h3 class="mb-0 mt-0">5 New</h3>
@@ -133,7 +143,8 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user2-160x160.jpg" class="rounded-circle" alt="User Image">
+                                                <img src="/Admin/./images/user2-160x160.jpg" class="rounded-circle"
+                                                     alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
                                                 <h4>
@@ -148,7 +159,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user3-128x128.jpg" class="rounded-circle" alt="User Image">
+                                                <img src="/Admin/./images/user3-128x128.jpg" class="rounded-circle"
+                                                     alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
                                                 <h4>
@@ -162,7 +174,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user4-128x128.jpg" class="rounded-circle" alt="User Image">
+                                                <img src="/Admin/./images/user4-128x128.jpg" class="rounded-circle"
+                                                     alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
                                                 <h4>
@@ -176,7 +189,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user3-128x128.jpg" class="rounded-circle" alt="User Image">
+                                                <img src="/Admin/./images/user3-128x128.jpg" class="rounded-circle"
+                                                     alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
                                                 <h4>
@@ -190,7 +204,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user4-128x128.jpg" class="rounded-circle" alt="User Image">
+                                                <img src="/Admin/./images/user4-128x128.jpg" class="rounded-circle"
+                                                     alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
                                                 <h4>
@@ -215,7 +230,8 @@
                         <ul class="dropdown-menu animated fadeInDown">
 
                             <li class="header">
-                                <div class="bg-img text-white p-20" style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="5">
+                                <div class="bg-img text-white p-20"
+                                     style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="5">
                                     <div class="flexbox">
                                         <div>
                                             <h3 class="mb-0 mt-0">7 New</h3>
@@ -233,17 +249,20 @@
                                 <ul class="menu sm-scrol">
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-users text-info"></i> Curabitur id eros quis nunc suscipit blandit.
+                                            <i class="fa fa-users text-info"></i> Curabitur id eros quis nunc suscipit
+                                            blandit.
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-warning text-warning"></i> Duis malesuada justo eu sapien elementum, in semper diam posuere.
+                                            <i class="fa fa-warning text-warning"></i> Duis malesuada justo eu sapien
+                                            elementum, in semper diam posuere.
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-users text-danger"></i> Donec at nisi sit amet tortor commodo porttitor pretium a erat.
+                                            <i class="fa fa-users text-danger"></i> Donec at nisi sit amet tortor
+                                            commodo porttitor pretium a erat.
                                         </a>
                                     </li>
                                     <li>
@@ -253,7 +272,8 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-user text-danger"></i> Praesent eu lacus in libero dictum fermentum.
+                                            <i class="fa fa-user text-danger"></i> Praesent eu lacus in libero dictum
+                                            fermentum.
                                         </a>
                                     </li>
                                     <li>
@@ -263,7 +283,8 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-user text-success"></i> Nullam euismod dolor ut quam interdum, at scelerisque ipsum imperdiet.
+                                            <i class="fa fa-user text-success"></i> Nullam euismod dolor ut quam
+                                            interdum, at scelerisque ipsum imperdiet.
                                         </a>
                                     </li>
                                 </ul>
@@ -279,7 +300,8 @@
                         <ul class="dropdown-menu animated fadeInDown">
 
                             <li class="header">
-                                <div class="bg-img text-white p-20" style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="5">
+                                <div class="bg-img text-white p-20"
+                                     style="background-image: url(/Admin/./images/user-info.jpg)" data-overlay="5">
                                     <div class="flexbox">
                                         <div>
                                             <h3 class="mb-0 mt-0">6 New</h3>
@@ -302,7 +324,8 @@
                                                 <small class="pull-right">30%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-danger" style="width: 30%" role="progressbar"
+                                                <div class="progress-bar progress-bar-danger" style="width: 30%"
+                                                     role="progressbar"
                                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                     <span class="sr-only">30% Complete</span>
                                                 </div>
@@ -317,7 +340,8 @@
                                                 <small class="pull-right">20%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-info" style="width: 20%" role="progressbar"
+                                                <div class="progress-bar progress-bar-info" style="width: 20%"
+                                                     role="progressbar"
                                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                     <span class="sr-only">20% Complete</span>
                                                 </div>
@@ -332,7 +356,8 @@
                                                 <small class="pull-right">70%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-success" style="width: 70%" role="progressbar"
+                                                <div class="progress-bar progress-bar-success" style="width: 70%"
+                                                     role="progressbar"
                                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                     <span class="sr-only">70% Complete</span>
                                                 </div>
@@ -347,7 +372,8 @@
                                                 <small class="pull-right">40%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-warning" style="width: 40%" role="progressbar"
+                                                <div class="progress-bar progress-bar-warning" style="width: 40%"
+                                                     role="progressbar"
                                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                     <span class="sr-only">40% Complete</span>
                                                 </div>
@@ -362,7 +388,8 @@
                                                 <small class="pull-right">80%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-primary" style="width: 80%" role="progressbar"
+                                                <div class="progress-bar progress-bar-primary" style="width: 80%"
+                                                     role="progressbar"
                                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                     <span class="sr-only">80% Complete</span>
                                                 </div>
@@ -377,7 +404,8 @@
                                                 <small class="pull-right">90%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-info" style="width: 90%" role="progressbar"
+                                                <div class="progress-bar progress-bar-info" style="width: 90%"
+                                                     role="progressbar"
                                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                                     <span class="sr-only">90% Complete</span>
                                                 </div>
@@ -404,9 +432,10 @@
         <!-- sidebar-->
         <section class="sidebar">
 
+
             <!-- sidebar menu-->
             <ul class="sidebar-menu" data-widget="tree">
-{{--                users--}}
+                {{--                users--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-contacts"></i>
@@ -416,11 +445,16 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('user.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('user.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_user'))
+                            <li><a href="{{route('user.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_user'))
+                            <li><a href="{{route('user.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @endif
                     </ul>
                 </li>
-{{--                PropertyGroup--}}
+                {{--                PropertyGroup--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-contacts"></i>
@@ -430,12 +464,17 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('propertyGroups.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('propertyGroups.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_property'))
+                            <li><a href="{{route('propertyGroups.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_property'))
+                            <li><a href="{{route('propertyGroups.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
-
-{{--                property--}}
+                {{--                property--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-contacts"></i>
@@ -445,11 +484,17 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('properties.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('properties.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_property'))
+                            <li><a href="{{route('properties.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_property'))
+                            <li><a href="{{route('properties.index')}}"><i
+                                        class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @endif
                     </ul>
                 </li>
-{{--                roles--}}
+                {{--                roles--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-contacts"></i>
@@ -459,11 +504,17 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('roles.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('roles.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_role'))
+                            <li><a href="{{route('roles.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_role'))
+                            <li><a href="{{route('roles.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
-{{--                brands--}}
+                {{--                brands--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-contacts"></i>
@@ -473,11 +524,17 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('brands.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('brands.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_role'))
+                            <li><a href="{{route('brands.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_brand'))
+                            <li><a href="{{route('brands.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
-{{--                category--}}
+                {{--                category--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-apps"></i>
@@ -487,11 +544,17 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('categories.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('categories.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_category'))
+                            <li><a href="{{route('categories.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_category'))
+                            <li><a href="{{route('categories.index')}}"><i
+                                        class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @endif
                     </ul>
                 </li>
-{{--                product--}}
+                {{--                product--}}
                 <li class="treeview">
                     <a href="#">
                         <i class="mdi mdi-apps"></i>
@@ -501,10 +564,35 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('products.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
-                        <li><a href="{{route('products.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @if($user->HasRolePermission('create_product'))
+                            <li><a href="{{route('products.create')}}"><i
+                                        class="mdi mdi-toggle-switch-off"></i>ایجاد</a></li>
+                        @endif
+                        @if($user->HasRolePermission('index_product'))
+                            <li><a href="{{route('products.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
+                {{--                notification--}}
+                @if($user->HasRolePermission('Admin'))
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="mdi mdi-apps"></i>
+                            <span>notification</span>
+                            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{route('notifications.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                            <li><a href="{{route('products.create')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
             </ul>
         </section>
     </aside>
@@ -512,8 +600,8 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-      @yield('content')
-        <!-- /.content -->
+    @yield('content')
+    <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -533,7 +621,8 @@
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-light">
 
-        <div class="rpanel-title"><span class="btn pull-right"><i class="ion ion-close" data-toggle="control-sidebar"></i></span> </div>
+        <div class="rpanel-title"><span class="btn pull-right"><i class="ion ion-close"
+                                                                  data-toggle="control-sidebar"></i></span></div>
         <!-- Create the tabs -->
         <ul class="nav nav-tabs control-sidebar-tabs">
             <li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab">Tasks</a></li>
@@ -656,7 +745,7 @@
                     <h3 class="control-sidebar-heading">General Settings</h3>
 
                     <div class="form-group">
-                        <input type="checkbox" id="report_panel" class="chk-col-grey" >
+                        <input type="checkbox" id="report_panel" class="chk-col-grey">
                         <label for="report_panel" class="control-sidebar-subheading ">Report panel usage</label>
 
                         <p>
@@ -666,7 +755,7 @@
                     <!-- /.form-group -->
 
                     <div class="form-group">
-                        <input type="checkbox" id="allow_mail" class="chk-col-grey" >
+                        <input type="checkbox" id="allow_mail" class="chk-col-grey">
                         <label for="allow_mail" class="control-sidebar-subheading ">Mail redirect</label>
 
                         <p>
@@ -676,7 +765,7 @@
                     <!-- /.form-group -->
 
                     <div class="form-group">
-                        <input type="checkbox" id="expose_author" class="chk-col-grey" >
+                        <input type="checkbox" id="expose_author" class="chk-col-grey">
                         <label for="expose_author" class="control-sidebar-subheading ">Expose author name</label>
 
                         <p>
@@ -688,14 +777,15 @@
                     <h3 class="control-sidebar-heading">Chat Settings</h3>
 
                     <div class="form-group">
-                        <input type="checkbox" id="show_me_online" class="chk-col-grey" >
+                        <input type="checkbox" id="show_me_online" class="chk-col-grey">
                         <label for="show_me_online" class="control-sidebar-subheading ">Show me as online</label>
                     </div>
                     <!-- /.form-group -->
 
                     <div class="form-group">
-                        <input type="checkbox" id="off_notifications" class="chk-col-grey" >
-                        <label for="off_notifications" class="control-sidebar-subheading ">Turn off notifications</label>
+                        <input type="checkbox" id="off_notifications" class="chk-col-grey">
+                        <label for="off_notifications" class="control-sidebar-subheading ">Turn off
+                            notifications</label>
                     </div>
                     <!-- /.form-group -->
 
@@ -718,7 +808,6 @@
 
 </div>
 <!-- ./wrapper -->
-
 
 
 <!-- jQuery 3 -->

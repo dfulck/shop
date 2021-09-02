@@ -45,7 +45,8 @@ class GainerController extends Controller
             'role_id'=>role::findByTitle('guest')->id
         ]);
 
-        return redirect(route('gainers.index'));
+   return redirect()->back();
+
     }
 
     /**
@@ -68,7 +69,7 @@ class GainerController extends Controller
     public function edit(User $user)
     {
         return view('Admin.gainer.edit',[
-            'user'=>$user,
+            'gainer'=>$user,
             'roles'=>role::all()
         ]);
     }

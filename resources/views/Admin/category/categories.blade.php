@@ -58,8 +58,10 @@
                                         <tr>
                                             <th>#</th>
                                             <th>نام دسته بندی</th>
+                                            <th>میزان تخفیف</th>
                                             <th>سرگروه دسته بندی</th>
                                             <th>زمان ایجاد</th>
+                                            <th> Category Discount </th>
                                             <th>ویرایش</th>
                                             <th>حذف</th>
                                         </tr>
@@ -67,10 +69,19 @@
                                         <tbody>
                                         @foreach($categories as $category)
                                             <tr>
+
                                                 <th>{{$category->id}}</th>
                                                 <th>{{$category->title}}</th>
+                                                <th>
+                                                    @foreach($category->HasDiscountCategory($category) as $discount)
+                                                <span>{{$discount->discount}}</span>
+                                                    @endforeach
+                                                </th>
                                                 <th>{{optional($category->parent)->title}}</th>
                                                 <th>{{$category->created_at}}</th>
+                                                <th>
+                                                    <a class="btn btn-yellow" href="{{route('category.discount.create',$category)}}">category discount</a>
+                                                </th>
                                                 <th><a class="btn btn-outline-info"
                                                        href="{{route('categories.edit',$category)}}">ویرایش</a></th>
                                                 <th>

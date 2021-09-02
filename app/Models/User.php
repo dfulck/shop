@@ -40,7 +40,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public function HasRolePermission($parameter)
+    {
+        $user=auth()->user();
+        $role=role::query()->where('id',$user->role_id)->firstOrFail();
+       return $role->HasPermissions($parameter);
+    }
 
     public function questions()
     {

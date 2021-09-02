@@ -13,6 +13,7 @@ class product extends Model
 
     protected $guarded=[];
 
+
     public function questions()
     {
         return $this->belongsToMany(question::class);
@@ -43,9 +44,17 @@ class product extends Model
 
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(category::class);
+        return $this->belongsToMany(category::class);
+    }
+
+    public function HasCategoryForProduct(product $product)
+    {
+        $categories=$this->categories()->where('product_id',$product->id)->first();
+
+        return category::query()->where('id',$categories->category_id)->firstOrFail();
+
     }
 
     public function brand()

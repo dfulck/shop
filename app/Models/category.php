@@ -11,6 +11,24 @@ class category extends Model
 
     protected $guarded = [];
 
+    public function products()
+    {
+        return $this->belongsToMany(product::class);
+    }
+
+
+    public function discountCategories()
+    {
+        return $this->belongsToMany(discountCategory::class);
+    }
+    public function HasDiscountCategory(category $category)
+    {
+        $categories=$this->discountCategories()->where('category_id',$category->id)->get();
+
+
+        return $categories;
+    }
+
     public function parent()
     {
         return $this->belongsTo(category::class,'category_id');

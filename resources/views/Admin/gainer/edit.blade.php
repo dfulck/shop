@@ -4,22 +4,22 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <form action="{{route('user.update',$user)}}" class="text-center" method="post" >
+                <form action="{{route('user.update',$gainer)}}" class="text-center" method="post" >
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
                         <label class="form-control label-primary" for="name">name</label>
-                        <input class="form-control" type="text" name="name" id="name" value="{{$user->name}}">
+                        <input class="form-control" type="text" name="name" id="name" value="{{$gainer->name}}">
                     </div>
                     <div class="form-group">
                         <label class="form-control label-primary" for="email">email</label>
-                        <input class="form-control" type="email" name="email" id="email" value="{{$user->email}}">
+                        <input class="form-control" type="email" name="email" id="email" value="{{$gainer->email}}">
                     </div>
                     <div class="form-group">
                         <label class="form-control label-primary" for="role">role</label>
                         <select class="form-control" name="role" id="role">
                   @foreach($roles as $role)
-                                <option @if($role->id==$user->role->id)
+                                <option @if($role->id==$gainer->role->id)
                                     selected
                                     @endif
                                     value="{{$role->id}}">{{$role->title}}</option>

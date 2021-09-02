@@ -10,8 +10,14 @@
         <div class="bg-transparent">
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" style="margin-top: 1px"><a
-                            href="">{{$product->category->parent->title}}</a></li>
+                    <li class="breadcrumb-item" style="margin-top: 1px">
+                        @php
+                        $category=$product->category->parent;
+                        @endphp
+                        <a
+                            href="">        @foreach($category->HasDiscountCategory($category) as $discount)
+                                <span>{{$discount->discount}}</span>
+                            @endforeach</a></li>
                     <li class="breadcrumb-item"><a href="">{{$product->category->title}}</a></li>
 
                 </ol>

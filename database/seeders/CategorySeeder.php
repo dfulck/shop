@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
     {
         category::query()->create([
             'title'=>'دسته بندی اصلی',
-            'category_id'=>null
+            'category_id'=>null,
         ]);
     }
 }

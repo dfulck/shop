@@ -20,15 +20,13 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Question this product#</th>
+                                            <th>details</th>
                                             <th>نام محصول</th>
                                             <th>دسته بندی</th>
                                             <th>برند</th>
                                             <th>اسلاگ</th>
                                             <th>قیمت</th>
                                             <th>تصویر</th>
-                                            <th>ویژگی ها</th>
-                                            <th>گالری تصاویر</th>
                                             <th>میزان تخفیف</th>
                                             <th>تاریخ ایجاد</th>
                                             <th>ویرایش</th>
@@ -39,13 +37,11 @@
                                         @foreach($products as $product)
                                             <tr>
                                                 <th>{{$product->id}}</th>
-                                                <th>
-                                                        <a class="btn btn-info" href="{{route('product.questions.index',$product)}}">Question</a>
-                                                  </th>
+                                                <th>   <a class="btn btn-info" href="{{route('product.details',$product)}}">details</a></th>
                                                 <th>{{$product->name}}</th>
                                                 <th>
-                                                    <div class="text-center font-size-20 text-bold text-warning">{{$product->category->parent['title']}}</div>
-                                                    <div class="text-primary">{{$product->category->child($product->category_id)->title}}</div>
+                                                    <span>{{$product->HasCategoryForProduct($product)->parent->title}}</span>
+                                                    <span>{{$product->HasCategoryForProduct($product)->title}}</span>
                                                 </th>
                                                 <th>{{$product->brand->name}}</th>
                                                 <th>{{$product->slug}}</th>
@@ -53,8 +49,6 @@
                                                 <th>
                                                     <img width="70" src="{{str_replace('public','/storage',$product->image)}}" alt="{{$product->name}}">
                                                 </th>
-                                                <th><a class="btn btn-primary" href="{{route('product.properties.create',$product)}}">property</a></th>
-                                                <th><a class="btn btn-success" href="{{route('products.pictures.create',$product)}}">gallery</a></th>
                                                 <th>
                                                     @if(!$product->discount()->exists())
                                                     <a class="btn btn-outline-success" href="{{route('products.discounts.create',$product)}}">ایجاد تخفیف</a>

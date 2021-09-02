@@ -12,6 +12,18 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
+     * @param product $product
+     */
+    public function details(product $product)
+    {
+
+        return view('Admin.product.details.show',[
+            'product'=>$product
+        ]);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -44,15 +56,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        product::query()->create([
+        $product=product::query()->create([
             'name'=>$request->get('name'),
             'slug'=>$request->get('slug'),
             'description'=>$request->get('description'),
             'cost'=>$request->get('cost'),
             'image'=>$request->file('image')->storeAs('public/product',$request->file('image')->getClientOriginalName()),
-            'category_id'=>$request->get('category_id'),
             'brand_id'=>$request->get('brand_id'),
         ]);
+
+        $product->category()->attach($request->get('category_id'));
+
+
         return redirect(route('products.index'));
     }
 
@@ -105,9 +120,11 @@ class ProductController extends Controller
             'description'=>$request->get('description',$product->description),
             'cost'=>$request->get('cost',$product->cost),
             'image'=>$image,
-            'category_id'=>$request->get('category_id',$product->category_id),
             'brand_id'=>$request->get('brand_id',$product->brand_id),
         ]);
+
+        $product->category()->sync($request->get('category_id'));
+
         return redirect(route('products.index'));
     }
 

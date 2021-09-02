@@ -57,6 +57,8 @@ class userController extends Controller
 
     public function verify(Request $request, User $user)
     {
+        $users = $request->session()->get('user');
+        $usesrs_check = User::where('id',$users['id'])->first();
         if (!Hash::check($request->get('code'), $user->password)) {
             return back()->withErrors(['code' => 'این کد صجیج نمی باشد ']);
         }
