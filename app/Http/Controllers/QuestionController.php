@@ -44,10 +44,8 @@ class QuestionController extends Controller
         ]);
 
         $product->questions()->attach($question->id);
-
+        session()->flash('success','Question Added Successfully');
         return back();
-
-
 
     }
 

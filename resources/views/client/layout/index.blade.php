@@ -28,7 +28,11 @@
     <script src="/client/js/owl.carousel.min.js"></script>
     <script src="/client/js/custom.js"></script>
 </head>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <body>
+@include('client.layout.notification')
 <!--start header-->
 <div class="container-fluid shadow-sm bg-white">
     <div class="row p-3">
@@ -319,7 +323,49 @@
             }
         });
     }
+    function addToCart(productId)
+    {
+        var quantity = 1;
+
+        if($('#input-quantity').length){
+            quantity = $('#input-quantity').val();
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/cart/" + productId,
+            data: {
+                _token: "{{csrf_token()}}",
+                quantity: quantity
+            },
+            success: function (data){
+                $('.total-items').text(data.cart.total_items);
+                $('.total-amount').text(data.cart.total_amount);
+
+                if (!$('#cart-row-' + productId).length){
+
+                    var product = data.cart[productId]['product'];
+                    var productQty = data.cart[productId]['quantity'];
+
+                    $('#cart-table-body:last-child').append(
+                        '<tr id="cart-row-' + product.id +'">'
+                        + '<td class="text-center"><a href="product.html"><img width="100"  class="img-thumbnail" title="'+ product.name +'" alt="' + product.name + '" src="' + product.image_path +'"></a></td>'
+                        + '<td class="text-left"><a href="product.html">' + product.name +'</a></td>'
+                        + '<td class="text-right">x' + productQty +'</td>'
+                        + '<td class="text-right">' + product.cost_with_discount + ' تومان</td>'
+                        + '<td class="text-center"><button class="btn btn-danger btn-xs remove" title="حذف" onClick="removeFromCart(' + product.id + ')" type="button"><i class="fa fa-times"></i></button></td>'
+                        + '</tr>'
+                    );
+
+                }
+
+
+            }
+        })
+
+    }
 </script>
+
 
 
 </body>

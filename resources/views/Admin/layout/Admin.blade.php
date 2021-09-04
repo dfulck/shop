@@ -41,8 +41,12 @@
 
 
 </head>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 <body class="hold-transition skin-info-light sidebar-mini rtl">
+@include('Admin.layout.notification')
 <div class="wrapper">
 
     <header class="main-header">
@@ -587,7 +591,7 @@
                         <ul class="treeview-menu">
                             <li><a href="{{route('notifications.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
                             </li>
-                            <li><a href="{{route('products.create')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
+                            <li><a href="{{route('notifications.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a>
                             </li>
                         </ul>
                     </li>

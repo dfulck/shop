@@ -10,15 +10,8 @@
         <div class="bg-transparent">
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" style="margin-top: 1px">
-                        @php
-                        $category=$product->category->parent;
-                        @endphp
-                        <a
-                            href="">        @foreach($category->HasDiscountCategory($category) as $discount)
-                                <span>{{$discount->discount}}</span>
-                            @endforeach</a></li>
-                    <li class="breadcrumb-item"><a href="">{{$product->category->title}}</a></li>
+                    <li class="breadcrumb-item" style="margin-top: 1px">{{$product->category->parent->title}}</li>
+                    <li class="breadcrumb-item">{{$product->category->title}}</li>
 
                 </ol>
             </nav>
@@ -155,7 +148,22 @@
                                     :
                                     <span><a href="#">بوسمن</a></span>
                                 </li>
-                                <li class="seller_rate"><span>رضایت خرید :۵۳%</span></li>
+                                <li class="seller_rate">
+                                    <div class="cart">
+                                        <form method="post">
+                                            <div class="qty">
+                                                <label class="control-label" for="input-quantity">تعداد</label>
+                                                <input type="number" name="quantity" value="1" maxlength="20" max="20"
+                                                       id="input-quantity" class="form-control"/>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <button type="button" id="button-cart"
+                                                    onclick="addToCart({{$product->id}});"
+                                                    class="btn btn-primary btn-lg">افزودن به سبد
+                                            </button>
+                                        </form>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         <div class="product_guarantee mt-2 text-center text-md-left">
@@ -308,240 +316,44 @@
         </ul>
         <div class="tab-content box-content" id="myTabContent">
             <div class="tab-pane fade bg-white p-5" id="home">
+                @php
+                    $propertGroups=$product->category->propertyGroups;
+                @endphp
                 <h4>مشخصات فنی</h4>
-                <span>HBQ-I7 Bluetooth Handsfree</span>
-                <div class="box_list mt-4">
-                    <p class="title"><i class="material-icons">arrow_left</i>مشخصات کلی</p>
-                    <section>
-                        <ul class="param_list list-inline">
-                            <div class="container">
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                قابلیت پخش موسیقی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                دارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                قابلیت کنترل صدا و موزیک
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                راهنمایی صوتی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-
-                            </div>
-                        </ul>
-                    </section>
-                </div>
-                <div class="box_list mt-4">
-                    <p class="title"><i class="material-icons">arrow_left</i>مشخصات کلی</p>
-                    <section>
-                        <ul class="param_list list-inline">
-                            <div class="container">
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                قابلیت پخش موسیقی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                دارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                قابلیت کنترل صدا و موزیک
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                راهنمایی صوتی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-
-                            </div>
-                        </ul>
-                    </section>
-                </div>
-                <div class="box_list mt-4">
-                    <p class="title"><i class="material-icons">arrow_left</i>مشخصات کلی</p>
-                    <section>
-                        <ul class="param_list list-inline">
-                            <div class="container">
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                قابلیت پخش موسیقی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                دارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                قابلیت کنترل صدا و موزیک
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                راهنمایی صوتی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-
-                            </div>
-                        </ul>
-                    </section>
-                </div>
-                <div class="box_list mt-4">
-                    <p class="title"><i class="material-icons">arrow_left</i>مشخصات کلی</p>
-                    <section>
-                        <ul class="param_list list-inline">
-                            <div class="container">
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom1">
-                                                راهنمایی صوتی
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                دارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <!--   <div class="box_params_list">
-                                               <p class="block border_right_custom1">
-                                                   قابلیت کنترل صدا و موزیک
-                                               </p>
-                                           </div>-->
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="row pr-md-2">
-                                    <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
-                                        <!--   <div class="box_params_list">
-                                               <p class="block border_right_custom1">
-                                                   راهنمایی صوتی
-                                               </p>
-                                           </div>-->
-                                    </li>
-                                    <li class="list-inline-item col-md-8 p-0 m-0">
-                                        <div class="box_params_list">
-                                            <p class="block border_right_custom2">
-                                                ندارد
-                                            </p>
-                                        </div>
-                                    </li>
-                                </div>
-
-                            </div>
-                        </ul>
-                    </section>
-                </div>
+                <span>{{$product->name}}</span>
+                @if($propertGroups)
+                    @foreach($propertGroups as $groups)
+                        <div class="box_list mt-4">
+                            <p class="title"><i class="material-icons">arrow_left</i>{{$groups->title}}</p>
+                            <section>
+                                <ul class="param_list list-inline">
+                                    <div class="container">
+                                        @foreach($groups->Properties as $property)
+                                            <div class="row pr-md-2">
+                                                <li class="list-inline-item col-md-3 pl-md-1 pr-md-3 p-0 m-0">
+                                                    <div class="box_params_list">
+                                                        <p class="block border_right_custom1">
+                                                            {{$property->title}}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item col-md-8 p-0 m-0">
+                                                    <div class="box_params_list">
+                                                        <p class="block border_right_custom2">
+                                                            @if($property->GetValueProperties($product))
+                                                                {{$property->GetValueProperties($product)}}
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </ul>
+                            </section>
+                        </div>
+                    @endforeach
+                @endif
             </div>
             <div class="tab-pane fade bg-white p-5" id="profile">
                 <h4>امتیاز کاربران به :</h4>
@@ -910,7 +722,8 @@
                                     @foreach($question->getQuestionAnswer($question) as $answer)
                                         <div class="col-md-2 my-2 text-center">
                                             @auth
-                                                <span class="text-center bg-dark text-white">{{auth()->user()->name}}</span>
+                                                <span
+                                                    class="text-center bg-dark text-white">{{auth()->user()->name}}</span>
                                             @endauth
                                         </div>
                                         <div class="col-md-10 my-2 ">
@@ -940,113 +753,42 @@
 
                         <div class="card-body py-1" style="padding: 50px">
                             <div class="owl-carousel owl-theme">
-
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/2836814.jpg" alt="">
+                                @foreach($product->category->HasCategoryProductChildiren() as $child)
+                                    @php
+                                        $product=$child->LimitidProduct()
+                                    @endphp
+                                    <div class="item">
+                                        <a href="{{route('products.show',$product)}}">
+                                            <div class="card panel-custom">
+                                                <div class="card-body panel-body-custom">
+                                                    <img src="{{str_replace('public','/storage',$product->image)}}">
+                                                </div>
+                                                <div class="card-footer panel-footer-custom">
+                                                    <h4>{{$product->name}}</h4>
+                                                    <div class="c-discount__row-container">
+                                                        <div class="c-discount__price">
+                                                            <div class="c-discount__price--primary">
+                                                                    <span
+                                                                        class="c-discount__price--now">{{$product->cost_with_discount}}
+                                                                        <span>تومان</span></span>
+                                                                @if($product->has_discount)
+                                                                    <span
+                                                                        class="c-discount__price--original">{{$product->cost}}
+                                                                    <span>تومان</span></span>
+                                                            </div>
+                                                            <div class="c-discount__price--discount">
+                                                                <div class="c-discount__price--discount-content">
+                                                                    {{$product->discount->discount}}%
+                                                                    <span> تخفیف </span></div>
+                                                            </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>مچ بند هوشمند شیائومی مدل Mi Band 3</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/2481611.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>مچ بند هوشمند مدل M2</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/1903438.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>ساعت هوشمند بی اس ان ال مدل A9</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/2795704.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>ساعت هوشمند وی سریز مدل A1</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/2836814.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>مچ بند هوشمند شیائومی مدل Mi Band 3</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/2481611.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>مچ بند هوشمند مدل M2</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/1903438.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>ساعت هوشمند بی اس ان ال مدل A9</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="item">
-                                    <a href="">
-                                        <div class="card panel-custom">
-                                            <div class="card-body panel-body-custom">
-                                                <img src="/client/img/2795704.jpg" alt="">
-                                            </div>
-                                            <div class="card-footer panel-footer-custom">
-                                                <h4>ساعت هوشمند وی سریز مدل A1</h4>
-                                                <p>12300 هزاز تومان</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

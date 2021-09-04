@@ -13,47 +13,41 @@ class category extends Model
 
     public function products()
     {
-        return $this->belongsToMany(product::class);
+        return $this->hasMany(product::class, 'category_id');
     }
 
-
-    public function discountCategories()
-    {
-        return $this->belongsToMany(discountCategory::class);
-    }
-    public function HasDiscountCategory(category $category)
-    {
-        $categories=$this->discountCategories()->where('category_id',$category->id)->get();
-
-
-        return $categories;
-    }
 
     public function parent()
     {
-        return $this->belongsTo(category::class,'category_id');
+        return $this->belongsTo(category::class, 'category_id');
     }
-    public function childiren()
+
+    public function childiren(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(category::class,'category_id');
+        return $this->hasMany(category::class, 'category_id');
     }
+
 //for Admin panel dont change
     public function child($category)
     {
-       return category::query()->where('id',$category)->firstOrFail();
+        return category::query()->where('id', $category)->firstOrFail();
     }
+
     //end
 
-    public function getAllSubCategoryProductAttribute()
+    public function getAllSubCategoryProducts()
     {
-        $children_Ids=$this->childiren()->pluck('id');
-
-        return product::query()->whereIn('category_id',$children_Ids)->get();
+        $childrenIds = $this->childiren()->pluck('id');
+        return Product::query()
+            ->whereIn('category_id', $childrenIds)
+            ->orWhere('category_id', $this->id)
+            ->get();
     }
 
-    public function getHasChildirenAttribute()
+    public function ChildirenProduct()
     {
-       return $this->childiren()->exists();
+        $child = $this->childiren()->first();
+        return product::query()->where('id', $child->id)->get();
     }
 
     public function propertyGroups()
@@ -64,10 +58,27 @@ class category extends Model
     public function HasPropertyGroup(PropertyGroup $propertyGroup)
     {
 
-       return $this->propertyGroups()
-            ->where('property_group_id',$propertyGroup->id)
+        return $this->propertyGroups()
+            ->where('property_group_id', $propertyGroup->id)
             ->exists();
-
-
     }
+
+    public function LimitidProduct()
+    {
+        return product::query()
+            ->where('category_id', $this->id)
+            ->first();
+    }
+
+    public function HasCategoryProductChildiren()
+    {
+        $parent = $this->parent()->first();
+
+        $childiren = $parent->childiren()->limit(3)->get();
+
+        return $childiren;
+    }
+
+
+
 }

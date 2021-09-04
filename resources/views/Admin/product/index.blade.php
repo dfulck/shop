@@ -40,8 +40,7 @@
                                                 <th>   <a class="btn btn-info" href="{{route('product.details',$product)}}">details</a></th>
                                                 <th>{{$product->name}}</th>
                                                 <th>
-                                                    <span>{{$product->HasCategoryForProduct($product)->parent->title}}</span>
-                                                    <span>{{$product->HasCategoryForProduct($product)->title}}</span>
+                                                    {{$product->HasCategoryForProduct()->title}}
                                                 </th>
                                                 <th>{{$product->brand->name}}</th>
                                                 <th>{{$product->slug}}</th>

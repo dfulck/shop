@@ -61,11 +61,11 @@ class ProductController extends Controller
             'slug'=>$request->get('slug'),
             'description'=>$request->get('description'),
             'cost'=>$request->get('cost'),
+            'category_id'=>$request->get('category_id'),
             'image'=>$request->file('image')->storeAs('public/product',$request->file('image')->getClientOriginalName()),
             'brand_id'=>$request->get('brand_id'),
         ]);
 
-        $product->category()->attach($request->get('category_id'));
 
 
         return redirect(route('products.index'));
@@ -119,11 +119,12 @@ class ProductController extends Controller
             'slug'=>$request->get('slug',$product->slug),
             'description'=>$request->get('description',$product->description),
             'cost'=>$request->get('cost',$product->cost),
+            'category_id'=>$request->get('category_id'),
             'image'=>$image,
             'brand_id'=>$request->get('brand_id',$product->brand_id),
         ]);
 
-        $product->category()->sync($request->get('category_id'));
+
 
         return redirect(route('products.index'));
     }
@@ -136,6 +137,9 @@ class ProductController extends Controller
      */
     public function destroy(product $product)
     {
+   $product->properties()->detach();
+   $product->questions()->detach();
+   $product->users()->detach();
         $product->delete();
         return redirect(route('products.index'));
     }

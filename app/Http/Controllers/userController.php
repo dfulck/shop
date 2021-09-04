@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use mysql_xdevapi\Session;
 
 class userController extends Controller
 {
@@ -50,6 +51,7 @@ class userController extends Controller
 
         $user = User::RegisterUser($request);
 
+        session()->flash('info','Verfry Code Send Your Email');
 
         return redirect(route('users.show', $user));
     }
@@ -64,7 +66,7 @@ class userController extends Controller
         }
 
         auth()->login($user);
-
+        session()->flash('success','Login Successfully');
         return redirect(route('home'));
     }
 
@@ -125,7 +127,27 @@ class userController extends Controller
     public function logout()
     {
         auth()->logout();
+        session()->flash('error','Sign Out Successfully');
 
+        return redirect(route('home'));
+    }
+
+
+    public function log()
+    {
+        return view('client.user.login');
+    }
+
+    public function login(request $request)
+    {
+        $user = User::query()->whereEmail($request->get('email'))->firstOrFail();
+
+        if (!Hash::check($request->get('password'),$user->password)){
+            return back()->withErrors(['password'=>'this password in incorect']);
+        }
+
+        auth()->login($user);
+        session()->flash('success','Login Successfully');
         return redirect(route('home'));
     }
 }

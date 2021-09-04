@@ -1089,7 +1089,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="owl-carousel owl-theme">
-                                    @foreach($category->all_sub_category_product as $product)
+                                    @foreach($category->childiren as $child)
+                                        @foreach($child->getAllSubCategoryProducts() as $product)
                                         <div class="item">
                                             <a href="{{route('products.show',$product)}}">
                                                 <div class="card panel-custom">
@@ -1108,7 +1109,7 @@
                                                                         <span
                                                                             class="c-discount__price--original">{{$product->cost}}
                                                                     <span>تومان</span></span>
-                                                                   </div>
+                                                                </div>
                                                                 <div class="c-discount__price--discount">
                                                                     <div class="c-discount__price--discount-content">
                                                                         {{$product->discount->discount}}%
@@ -1121,6 +1122,7 @@
                                                 </div>
                                             </a>
                                         </div>
+                                        @endforeach
                                     @endforeach
                                 </div>
                             </div>

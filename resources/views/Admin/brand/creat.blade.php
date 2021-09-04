@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <div class="col-sm-12">
             <h1>ایجاد برند</h1>
+            @include('Admin.layout.notification')
             <form class="form-control font-size-20" enctype="multipart/form-data" action="{{route('brands.store')}}" method="post">
                 @csrf
                 <div class="form-group">

@@ -14,7 +14,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.notification.index',[
+            'notifications'=>notification::all()
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.notification.create');
     }
 
     /**
@@ -35,7 +37,11 @@ class NotificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        notification::query()->create([
+            'massage'=>$request->get('massage')
+        ]);
+
+        return redirect(route('notifications.index'));
     }
 
     /**

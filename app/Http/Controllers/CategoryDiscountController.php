@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\discount;
 use App\Models\discountCategory;
 use Illuminate\Http\Request;
 
@@ -36,15 +37,20 @@ class CategoryDiscountController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,category $category)
+    public function store(Request $request, category $category)
     {
-       $discount= discountCategory::query()->create([
-            'discount'=>$request->get('discount')
-        ]);
 
-       $category->discountCategories()->sync($discount->id);
 
-       return redirect()->back();
+        foreach ($category->getAllSubCategoryProducts() as $product) {
+            discount::query()->insert([
+                'discount' => $request->get('discount'),
+                'product_id' => $product->id
+            ]);
+
+        }
+
+
+       return redirect(route('categories.index'));
 
     }
 
@@ -77,9 +83,9 @@ class CategoryDiscountController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, discountCategory $discountCategory)
     {
-        //
+
     }
 
     /**
@@ -88,8 +94,8 @@ class CategoryDiscountController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(discountCategory $discountCategory)
     {
-        //
+
     }
 }

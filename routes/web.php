@@ -19,6 +19,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\CategoryDiscountController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,8 @@ use App\Http\Controllers\NotificationController;
 */
 
 Route::get('/',[home::class,'home'])->name('home');
-Route::get('/porofile/users/log',[home::class,'log'])->name('login');
-Route::post('/porofile/users/login',[home::class,'login'])->name('users.login');
+Route::get('/porofile/users/log',[userController::class,'log'])->name('login');
+Route::post('/porofile/users/login',[userController::class,'login'])->name('users.login');
 
 
 
@@ -50,6 +51,7 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('properties',PropertyController::class);
     Route::resource('product.properties',ProductPropertyController::class);
 });
+Route::resource('products.cart',CartController::class);
 Route::resource('notifications',NotificationController::class);
 Route::resource('category.discount',CategoryDiscountController::class);
 Route::get('/product/{product}/details',[ProductController::class,'details'])->name('product.details');

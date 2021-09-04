@@ -16,7 +16,7 @@ class CreateProductPropertyTable extends Migration
         Schema::create('product_property', function (Blueprint $table) {
             $table->foreignId('product_id')->constrained();
             $table->foreignId('property_id')->constrained();
-            $table->string('value');
+            $table->string('value')->nullable();
             $table->timestamps();
         });
     }

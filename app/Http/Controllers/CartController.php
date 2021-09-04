@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\answer;
+use App\Models\Cart;
 use App\Models\product;
-use App\Models\question;
 use Illuminate\Http\Request;
 
-class AnswerController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(question $question)
+    public function index(product $product)
     {
-        //
+
     }
 
     /**
@@ -24,7 +23,7 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(question $question)
+    public function create()
     {
         //
     }
@@ -32,26 +31,27 @@ class AnswerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, question $question)
+    public function store(Request $request , product $product)
     {
-        $user = auth()->user();
+        Cart::new($product , $request);
 
-        $question->users()->attach($user, ['answer' => $request->answer]);
-        session()->flash('success','Answer Added Successfully');
-        return back();
+        return response([
+           'msg'=>'succefully' ,
+            'cart'=>session()->get('cart')
 
+        ],200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\answer $answer
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(answer $answer, question $question)
+    public function show(Cart $cart)
     {
         //
     }
@@ -59,10 +59,10 @@ class AnswerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\answer $answer
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit(answer $answer, question $question)
+    public function edit(Cart $cart)
     {
         //
     }
@@ -70,11 +70,11 @@ class AnswerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\answer $answer
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, answer $answer, question $question)
+    public function update(Request $request, Cart $cart)
     {
         //
     }
@@ -82,10 +82,10 @@ class AnswerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\answer $answer
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(answer $answer, question $question)
+    public function destroy(Cart $cart)
     {
         //
     }

@@ -27,7 +27,7 @@ class AdminSeeder extends Seeder
             'email'=>'cloberfan@gmail.com',
             'password'=>bcrypt(126875)
         ]);
-        role::query()->insert([
+        role::query()->create([
             'title'=>'guest'
         ]);
     }

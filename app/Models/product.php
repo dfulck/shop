@@ -44,17 +44,14 @@ class product extends Model
 
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(category::class);
+        return $this->belongsTo(category::class);
     }
 
-    public function HasCategoryForProduct(product $product)
+    public function HasCategoryForProduct()
     {
-        $categories=$this->categories()->where('product_id',$product->id)->first();
-
-        return category::query()->where('id',$categories->category_id)->firstOrFail();
-
+      return category::query()->where('id',$this->category_id)->first();
     }
 
     public function brand()

@@ -97,7 +97,8 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        $property->delete();
+        $property->products()->detach();
+        $property->forceDelete();
         return redirect(route('properties.index'));
     }
 }

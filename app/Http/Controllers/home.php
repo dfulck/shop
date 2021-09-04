@@ -22,21 +22,5 @@ class home extends Controller
         ]);
     }
 
-    public function log()
-    {
-        return view('client.user.login');
-    }
 
-    public function login(request $request)
-    {
-        $user = User::query()->whereEmail($request->get('email'))->firstOrFail();
-
-        if (!Hash::check($request->get('password'),$user->password)){
-           return back()->withErrors(['password'=>'this password in incorect']);
-        }
-
-        auth()->login($user);
-
-        return redirect(route('home'));
-    }
 }

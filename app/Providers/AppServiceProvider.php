@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use App\Models\brand;
 use App\Models\category;
+use App\Models\notification;
+use App\Models\product;
+use App\Observers\BrandObserver;
+use App\Observers\ProductObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -33,8 +37,13 @@ class AppServiceProvider extends ServiceProvider
         });
         view()->composer('Admin.*',function ($view){
            $view->with([
-               'user'=>auth()->user()
+               'user'=>auth()->user(),
+               'notifications'=>notification::all()
            ]);
         });
+
+        brand::observe(BrandObserver::class);
+        product::observe(ProductObserver::class);
+
     }
 }

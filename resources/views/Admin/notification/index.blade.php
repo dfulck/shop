@@ -9,31 +9,16 @@
             <div class="content-header">
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
-                        <h3 class="page-title">دسته بندی ها</h3>
+                        <h3 class="page-title">برند ها</h3>
                         <div class="d-inline-block align-items-center">
                             <nav>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a>
                                     </li>
-                                    <li class="breadcrumb-item" aria-current="page">دسته ها</li>
-                                    <li class="breadcrumb-item active" aria-current="page">دسته بندی ها</li>
+                                    <li class="breadcrumb-item" aria-current="page">notification</li>
+                                    <li class="breadcrumb-item active" aria-current="page">notifications</li>
                                 </ol>
                             </nav>
-                        </div>
-                    </div>
-                    <div class="right-title">
-                        <div class="dropdown">
-                            <button class="btn btn-outline dropdown-toggle no-caret" type="button"
-                                    data-toggle="dropdown"><i
-                                    class="mdi mdi-dots-horizontal"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-share"></i>Activity</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-email"></i>Messages</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-help-circle-outline"></i>FAQ</a>
-                                <a class="dropdown-item" href="#"><i class="mdi mdi-settings"></i>Support</a>
-                                <div class="dropdown-divider"></div>
-                                <button type="button" class="btn btn-success">Submit</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +33,7 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">لیست دسته بندی ها</h3>
+                                <h3 class="box-title">لیست برند ها</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -57,37 +42,21 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>نام دسته بندی</th>
-                                            <th>میزان تخفیف</th>
-                                            <th>سرگروه دسته بندی</th>
-                                            <th>زمان ایجاد</th>
-                                            <th> Category Discount </th>
+                                            <th>massage</th>
                                             <th>ویرایش</th>
                                             <th>حذف</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($categories as $category)
+                                        @foreach($notifications as $notification)
                                             <tr>
-
-                                                <th>{{$category->id}}</th>
-                                                <th>{{$category->title}}</th>
-                                                <th>
-                                                    @foreach($category->getAllSubCategoryProducts() as $product)
-                                                        {{$product->id}}
-                                                    @endforeach
-                                                </th>
-                                                <th>{{optional($category->parent)->title}}</th>
-                                                <th>{{$category->created_at}}</th>
-                                                <th>
-                                                    @if($category->childiren()->exists() && $category->parent()->exists())
-                                                    <a class="btn btn-yellow" href="{{route('category.discount.create',$category)}}">category discount</a>
-                                                        @endif
-                                                </th>
+                                                <th>{{$notification->id}}</th>
+                                                <th>{{$notification->massage}}</th>
+                                                <th>{{$notification->created_at}}</th>
                                                 <th><a class="btn btn-outline-info"
-                                                       href="{{route('categories.edit',$category)}}">ویرایش</a></th>
+                                                       href="{{route('notifications.edit',$notification)}}">ویرایش</a></th>
                                                 <th>
-                                                    <form method="post" action="{{route('categories.destroy',$category)}}">
+                                                    <form method="post" action="{{route('notifications.destroy',$notification)}}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="submit" class="btn btn-outline-danger" value="حذف">
@@ -100,8 +69,7 @@
                                         <tfoot>
                                         <tr>
                                             <th>جستجو بر اساس id</th>
-                                            <th>جستجو بر اساس نام</th>
-                                            <th>جستجو بر اساس سرگروه</th>
+                                            <th>جستجو بر اساس برند</th>
                                             <th>جستجو بر اساس تاریخ</th>
                                         </tr>
                                         </tfoot>
@@ -118,6 +86,8 @@
                 <!-- /.row -->
             </section>
             <!-- /.content -->
+
+
         </div>
     </div>
 @endsection

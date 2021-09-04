@@ -19,7 +19,7 @@ class ProductPropertyController extends Controller
     {
         $product->properties()->sync($request->get('properties'));
 
-        return redirect()->back();
+        return redirect(route('products.index'));
     }
 
     public function updateValue(Request $request,product $product)
