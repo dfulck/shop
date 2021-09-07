@@ -94,5 +94,21 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(product::class,'likes')
+            ->withTimestamps()
+            ;
+    }
+
+    public function LikeProduct(product $product)
+    {
+        $this->likes()->attach($product);
+    }
+
+    public function disLikeProduct(product $product)
+    {
+        $this->likes()->detach($product);
+    }
 
 }

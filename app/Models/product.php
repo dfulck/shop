@@ -13,6 +13,11 @@ class product extends Model
 
     protected $guarded=[];
 
+    public static function find($productId)
+    {
+        return self::query()->where('id',$productId)->firstOrFail();
+    }
+
 
     public function questions()
     {
@@ -31,17 +36,13 @@ class product extends Model
             ->withTimestamps();
     }
 
-    public function HasProductRate(product $product)
+    public function HasProductRate()
     {
-       $hasProduct=$this->users()->where('product_id',$product->id)->avg('value');
-
+       $hasProduct=$this->users()->where('product_id',$this->id)->avg('value');
        if (!$hasProduct){
            return null;
        }
-
        return $hasProduct;
-
-
     }
 
     public function category()
@@ -120,6 +121,11 @@ class product extends Model
             ->withTimestamps();
     }
 
-
+    public function likes()
+    {
+        return $this->belongsToMany(User::class,'likes')
+            ->withTimestamps()
+            ;
+    }
 
 }

@@ -9,9 +9,9 @@ class RateController extends Controller
 {
     public function store(Request $request,product $product)
     {
-
-        auth()->user()->products()->attach($product,['value'=>$request->get('like')]);
-
-        return back();
+        if (!$product->users()->exists()){
+            auth()->user()->products()->attach($product,['value'=>$request->get('like')]);
+        }
+        return redirect()->back();
     }
 }

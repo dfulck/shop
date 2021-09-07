@@ -17,13 +17,22 @@ class PermissionSeeder extends Seeder
         permission::query()->insert([
             //Admin
             ['title'=>'Admin'],
+            //offer
+            ['title'=>'index_offer'],
+            ['title'=>'create_offer'],
+            ['title'=>'edit_offer'],
+            ['title'=>'destroy_offer'],
             //category
 
             ['title'=>'index_category'],
             ['title'=>'create_category'],
             ['title'=>'edit_category'],
             ['title'=>'destroy_category'],
-
+            //slider
+            ['title'=>'index_slider'],
+            ['title'=>'create_slider'],
+            ['title'=>'edit_slider'],
+            ['title'=>'destroy_slider'],
             //brands
             ['title'=>'index_brand'],
             ['title'=>'create_brand'],

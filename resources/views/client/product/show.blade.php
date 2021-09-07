@@ -1,8 +1,5 @@
 @extends('client.layout.index')
 
-
-
-
 @section('index')
 
     <!--start breadcrumb-->
@@ -94,7 +91,7 @@
                             <span>سرویس ویژه دیجی کالا : ۷ روز تضمین تعویض کالا</span>
                         </div>
                         <hr>
-                        <p>{{$product->HasProductRate($product)}}</p>
+                        <p>{{$product->HasProductRate()}}</p>
                         <hr>
                         @auth
                             <form method="post" action="{{route('product.rate',$product)}}">
@@ -131,9 +128,13 @@
                                         </li>
                                     </ul>
                                 </div>
+                                @if(!$product->users()->exists())
                                 <div class="form-group">
                                     <input type="submit" value="ثبت نظر" class="btn btn-success-outline">
                                 </div>
+                                @else
+                                    <h3>shoma yekbar nazar dadid</h3>
+                                    @endif
                             </form>
                         @else
                             <p>لطفا برای نظر دهی به این محصول وارد جساب کاربری شوید</p>
@@ -172,7 +173,16 @@
                                     <img src="/client/img/1fb9a3a5.svg" alt="">
                                 </li>
                                 <li class="list-inline-item mr-2">
-                                    <span>بسته بندی و ارسال توسط دیجی کالا</span>
+                                    <button type="button" id="like-{{$product->id}}" onClick="like({{$product->id}});">
+                                        @method('delete')
+                                        <a class="btn btn-like text-purple
+                                        @if($product->likes()->exists())
+                                            like
+                                            @endif
+                                            ">like</a>
+                                    </button>
+
+
                                 </li>
                             </ul>
                         </div>
@@ -752,11 +762,9 @@
                         </div>
 
                         <div class="card-body py-1" style="padding: 50px">
+
                             <div class="owl-carousel owl-theme">
-                                @foreach($product->category->HasCategoryProductChildiren() as $child)
-                                    @php
-                                        $product=$child->LimitidProduct()
-                                    @endphp
+                                @foreach($product->category->HasCategoryChildirenProduct() as $product)
                                     <div class="item">
                                         <a href="{{route('products.show',$product)}}">
                                             <div class="card panel-custom">
@@ -790,6 +798,7 @@
                                     </div>
                                 @endforeach
                             </div>
+
                         </div>
                     </div>
 

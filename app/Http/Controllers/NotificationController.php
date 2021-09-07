@@ -63,7 +63,9 @@ class NotificationController extends Controller
      */
     public function edit(notification $notification)
     {
-        //
+        return view('Admin.notification.edit',[
+            'notification'=>$notification
+        ]);
     }
 
     /**
@@ -75,7 +77,10 @@ class NotificationController extends Controller
      */
     public function update(Request $request, notification $notification)
     {
-        //
+        $notification->update([
+            'massage'=>$request->get('massage')
+        ]);
+        return redirect(route('notifications.index'));
     }
 
     /**
@@ -86,6 +91,7 @@ class NotificationController extends Controller
      */
     public function destroy(notification $notification)
     {
-        //
+      $notification->delete();
+      return redirect()->back();
     }
 }

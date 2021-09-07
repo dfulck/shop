@@ -1,3 +1,7 @@
+@php
+use App\Models\Cart;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,36 +62,39 @@
                 <div class="dropdown">
                     <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false" style="line-height: 40px!important;">
-                      {{auth()->user()->email}}
+                        {{auth()->user()->email}}
                     </a>
                     <div class="dropdown-menu border-0 shadow rounded-0 dropdown-menu_custom text-center"
                          aria-labelledby="dropdownMenuButton">
                         <div class="btn login_box">
-                            <a class=" dropdown-item  dropdown-item-custom py-2 btn btn-info" href="{{route('Admins.panel')}}">مشاهده پروفایل</a>
+                            <a class=" dropdown-item  dropdown-item-custom py-2 btn btn-info"
+                               href="{{route('Admins.panel')}}">مشاهده پروفایل</a>
                         </div>
-                            <form action="{{route('users.logout')}}" method="get">
-                                @csrf
-                                <input type="submit" class="btn btn-danger" value="خروج">
-                            </form>
+                        <form action="{{route('users.logout')}}" method="get">
+                            @csrf
+                            <input type="submit" class="btn btn-danger" value="خروج">
+                        </form>
                     </div>
                 </div>
             @else
-            <div class="dropdown">
-                <a class="dropdown-toggle bg-white text-bold" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false" style="line-height: 40px!important;">
-                    ورود/ثبت نام
-                </a>
-                <div class="dropdown-menu border-0 shadow rounded-0 dropdown-menu_custom text-center"
-                     aria-labelledby="dropdownMenuButton">
-                    <div class="btn login_box">
-                        <a class="dropdown-item dropdown-item-custom py-2 btn btn-info" href="{{route('login')}}">ورود به دیجی کالا</a>
+                <div class="dropdown">
+                    <a class="dropdown-toggle bg-white text-bold" id="dropdownMenuButton" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false" style="line-height: 40px!important;">
+                        ورود/ثبت نام
+                    </a>
+                    <div class="dropdown-menu border-0 shadow rounded-0 dropdown-menu_custom text-center"
+                         aria-labelledby="dropdownMenuButton">
+                        <div class="btn login_box">
+                            <a class="dropdown-item dropdown-item-custom py-2 btn btn-info" href="{{route('login')}}">ورود
+                                به دیجی کالا</a>
+                        </div>
+                        <ul class="list-inline register">
+                            <li class="list-inline-item">کاربر جدید هستید؟</li>
+                            <li class="list-inline-item"><a href="{{route('users.create')}}">ثبت نام</a></li>
+                        </ul>
                     </div>
-                    <ul class="list-inline register">
-                        <li class="list-inline-item">کاربر جدید هستید؟</li>
-                        <li class="list-inline-item"><a href="{{route('users.create')}}">ثبت نام</a></li>
-                    </ul>
                 </div>
-            </div>
             @endauth
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-6 col-sm-2 col-6 text-right">
@@ -107,35 +114,45 @@
         <div class="nav_line"></div>
         <ul class="navbar-nav">
             @foreach($categories as $category)
-            <li class="nav-item">
-                <span class="nav-link text-white " data-toggle="dropdown">{{$category->title}}</span>
-                @if($category->has_childiren)
-                <div class="dropdown-menu dropdown-menu_custom1 shadow-sm rounded-bottom border-0"
-                     id="custom-main-dropdown-menu">
-                    <div class="container-fluid">
-                        <div class="row">
-                            @foreach($category->childiren as $category2)
-                            <div class="col-12 col-md-3">
-                                <div class="top_link">
-                                    <a href="#"><i class="material-icons">
-                                            @if($category2->childiren()->exists())
-                                            keyboard_arrow_left
-                                        @endif
-                                        </i>{{$category2->title}}</a>
+                <li class="nav-item">
+                    <span class="nav-link text-white " data-toggle="dropdown">{{$category->title}}</span>
+                    @if($category->has_childiren)
+                        <div class="dropdown-menu dropdown-menu_custom1 shadow-sm rounded-bottom border-0"
+                             id="custom-main-dropdown-menu">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    @foreach($category->childiren as $category2)
+                                        <div class="col-12 col-md-3">
+                                            <div class="top_link">
+                                                <a href="#"><i class="material-icons">
+                                                        @if($category2->childiren()->exists())
+                                                            keyboard_arrow_left
+                                                        @endif
+                                                    </i>{{$category2->title}}</a>
+                                            </div>
+                                            @foreach($category2->childiren as $category3)
+                                                <ul class="list-group custom-list-group">
+                                                    <li class="list-group-item border-0 px-0 "><a
+                                                            href="#">{{$category3->title}}</a></li>
+                                                </ul>
+                                            @endforeach
+                                        </div>
+                                    @endforeach
                                 </div>
-                                @foreach($category2->childiren as $category3)
-                                <ul class="list-group custom-list-group">
-                                    <li class="list-group-item border-0 px-0 "><a href="#">{{$category3->title}}</a></li>
-                                </ul>
-                                @endforeach
                             </div>
-                            @endforeach
                         </div>
-                    </div>
-                </div>
                     @endif
-            </li>
+                </li>
             @endforeach
+            @if(auth()->user())
+                <li class="nav-item">
+                    <a class="text-white bg-danger" href="{{route('like.index')}}">لیست علاقه مندی ها</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <span class="text-white bg-dark mx-5" id="total-Item">{{Cart::totalItems()}}</span>
+                    <span class="text-white bg-dark mx-5" id="total-Amount">{{Cart::totalAmount()}}</span>
+                </li>
+            @endif
         </ul>
         <div class="mr-auto">
             <ul class="navbar-nav special_sale">
@@ -154,7 +171,6 @@
         </div>
     </div>
 </a>
-
 
 
 @yield('index')
@@ -323,49 +339,100 @@
             }
         });
     }
-    function addToCart(productId)
-    {
-        var quantity = 1;
 
-        if($('#input-quantity').length){
-            quantity = $('#input-quantity').val();
-        }
+    function like(productId) {
+
+
+        $.ajax({
+
+            success: function (data) {
+                // console.log($('#like-' + productId + '>.btn-like'))
+
+                var icon = ($('#like-' + productId + '>.btn-like'));
+
+                if (icon.hasClass('like')) {
+                    icon.removeClass('like');
+                    $.ajax({
+                        type: 'post',
+                        url: "/like/delete/" + productId,
+                        data: {
+                            _token: "{{csrf_token()}}"
+                        }
+                    })
+                } else {
+                    icon.addClass('like');
+                    $.ajax({
+                        type: 'post',
+                        url: "/like/" + productId,
+                        data: {
+                            _token: "{{csrf_token()}}"
+                        }
+                    })
+                }
+
+            }
+        })
+    }
+
+    function addToCart(productId) {
+        var quantity = $('#input-quantity').val();
 
         $.ajax({
             type: "post",
             url: "/cart/" + productId,
             data: {
                 _token: "{{csrf_token()}}",
+                productId: productId,
                 quantity: quantity
             },
-            success: function (data){
-                $('.total-items').text(data.cart.total_items);
-                $('.total-amount').text(data.cart.total_amount);
-
-                if (!$('#cart-row-' + productId).length){
-
-                    var product = data.cart[productId]['product'];
-                    var productQty = data.cart[productId]['quantity'];
-
-                    $('#cart-table-body:last-child').append(
-                        '<tr id="cart-row-' + product.id +'">'
-                        + '<td class="text-center"><a href="product.html"><img width="100"  class="img-thumbnail" title="'+ product.name +'" alt="' + product.name + '" src="' + product.image_path +'"></a></td>'
-                        + '<td class="text-left"><a href="product.html">' + product.name +'</a></td>'
-                        + '<td class="text-right">x' + productQty +'</td>'
-                        + '<td class="text-right">' + product.cost_with_discount + ' تومان</td>'
-                        + '<td class="text-center"><button class="btn btn-danger btn-xs remove" title="حذف" onClick="removeFromCart(' + product.id + ')" type="button"><i class="fa fa-times"></i></button></td>'
-                        + '</tr>'
-                    );
-
-                }
-
-
+            success: function (data) {
+                $('#total-Item').text(data.cart.total_Items);
+                $('#total-Amount').text(data.cart.total_Amount);
             }
         })
-
     }
-</script>
+    {{--function addToCart(productId)--}}
+    {{--{--}}
+    {{--    var quantity = 1;--}}
 
+    {{--    if($('#input-quantity').length){--}}
+    {{--        quantity = $('#input-quantity').val();--}}
+    {{--    }--}}
+
+    {{--    $.ajax({--}}
+    {{--        type: "post",--}}
+    {{--        url: "/cart/" + productId,--}}
+    {{--        data: {--}}
+    {{--            _token: "{{csrf_token()}}",--}}
+    {{--            quantity: quantity--}}
+    {{--        },--}}
+    {{--        success: function (data){--}}
+    {{--            $('.total-items').text(data.cart.total_items);--}}
+    {{--            $('.total-amount').text(data.cart.total_amount);--}}
+
+    {{--            if (!$('#cart-row-' + productId).length){--}}
+
+    {{--                var product = data.cart[productId]['product'];--}}
+    {{--                var productQty = data.cart[productId]['quantity'];--}}
+
+    {{--                $('#cart-table-body:last-child').append(--}}
+    {{--                    '<tr id="cart-row-' + product.id +'">'--}}
+    {{--                    + '<td class="text-center"><a href="product.html"><img width="100"  class="img-thumbnail" title="'+ product.name +'" alt="' + product.name + '" src="' + product.image_path +'"></a></td>'--}}
+    {{--                    + '<td class="text-left"><a href="product.html">' + product.name +'</a></td>'--}}
+    {{--                    + '<td class="text-right">x' + productQty +'</td>'--}}
+    {{--                    + '<td class="text-right">' + product.cost_with_discount + ' تومان</td>'--}}
+    {{--                    + '<td class="text-center"><button class="btn btn-danger btn-xs remove" title="حذف" onClick="removeFromCart(' + product.id + ')" type="button"><i class="fa fa-times"></i></button></td>'--}}
+    {{--                    + '</tr>'--}}
+    {{--                );--}}
+
+    {{--            }--}}
+
+
+    {{--        }--}}
+    {{--    })--}}
+
+    {{--}--}}
+</script>
 
 
 </body>

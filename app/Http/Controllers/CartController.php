@@ -13,7 +13,7 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(product $product)
+    public function index()
     {
 
     }
@@ -34,17 +34,15 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , product $product)
+    public function store(Request $request,product $product)
     {
-        Cart::new($product , $request);
+        Cart::new($product,$request);
 
         return response([
-           'msg'=>'succefully' ,
+            'msg'=>'successfully',
             'cart'=>session()->get('cart')
-
         ],200);
     }
-
     /**
      * Display the specified resource.
      *

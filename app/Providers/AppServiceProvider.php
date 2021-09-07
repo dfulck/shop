@@ -6,6 +6,7 @@ use App\Models\brand;
 use App\Models\category;
 use App\Models\notification;
 use App\Models\product;
+use App\Models\slider;
 use App\Observers\BrandObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 'brands'=>brand::all(),
                 'categories'=>category::query()->where('category_id',1)->get(),
+                'sliders'=>slider::all()
                 ]);
         });
         view()->composer('Admin.*',function ($view){

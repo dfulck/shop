@@ -127,7 +127,7 @@ class userController extends Controller
     public function logout()
     {
         auth()->logout();
-        session()->flash('error','Sign Out Successfully');
+        session()->flash('error',"Sign Out {$user->email} Successfully");
 
         return redirect(route('home'));
     }
@@ -147,7 +147,7 @@ class userController extends Controller
         }
 
         auth()->login($user);
-        session()->flash('success','Login Successfully');
+        session()->flash('success',"Login {$user->email} Successfully");
         return redirect(route('home'));
     }
 }

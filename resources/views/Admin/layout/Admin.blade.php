@@ -439,6 +439,44 @@
 
             <!-- sidebar menu-->
             <ul class="sidebar-menu" data-widget="tree">
+                {{--                offers--}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>offers</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        @if($user->HasRolePermission('create_offer'))
+                            <li><a href="{{route('offers.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_offer'))
+                            <li><a href="{{route('offers.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @endif
+                    </ul>
+                </li>
+                {{--                sliders--}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>sliders</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        @if($user->HasRolePermission('create_slider'))
+                            <li><a href="{{route('sliders.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_slider'))
+                            <li><a href="{{route('sliders.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @endif
+                    </ul>
+                </li>
                 {{--                users--}}
                 <li class="treeview">
                     <a href="#">

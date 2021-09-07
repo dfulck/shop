@@ -14,7 +14,7 @@ class ProductObserver
      */
     public function created(product $product)
     {
-        session()->flash('success','successfully new Product');
+        session()->flash('success',"successfully created {$product->name}");
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductObserver
      */
     public function updated(product $product)
     {
-        session()->flash('info','Updated successfully');
+        session()->flash('info',"Updated {$product->name} successfully");
     }
 
     /**
@@ -36,7 +36,7 @@ class ProductObserver
      */
     public function deleted(product $product)
     {
-        session()->flash('error','successfully deleted Product');
+        session()->flash('error',"successfully deleted {$product->name}");
     }
 
     /**

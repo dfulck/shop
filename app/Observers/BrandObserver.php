@@ -14,7 +14,7 @@ class BrandObserver
      */
     public function created(brand $brand)
     {
-        session()->flash('success','successfully new brand');
+        session()->flash('success',"successfully created {$brand->name} ");
     }
 
     /**
@@ -25,7 +25,7 @@ class BrandObserver
      */
     public function updated(brand $brand)
     {
-        session()->flash('info','Updated successfully');
+        session()->flash('info',"Updated {$brand->name} successfully");
     }
 
     /**
@@ -36,7 +36,7 @@ class BrandObserver
      */
     public function deleted(brand $brand)
     {
-        session()->flash('error','successfully deleted brand');
+        session()->flash('error',"successfully deleted {$brand->name}");
     }
 
     /**

@@ -10,29 +10,19 @@
         <div class="row">
             <div class="col-12">
                 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel1">
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                        <li data-target="#myCarousel" data-slide-to="4"></li>
-                    </ol>
                     <div class="carousel-inner rounded box_shadow">
-                        <div class="carousel-item active">
-                            <a href="#"><img src="/client/img/1867.jpg" class="d-block w-100" alt=""></a>
+                        @if($sliders->first())
+                            @foreach($sliders as $slider)
+                        <div class="carousel-item
+                         @if($sliders->first()->id==$slider->id)
+                         active
+                         @endif ">
+
+                            <img height="600" src="{{str_replace('public','/storage',$slider->image)}}" class="d-block w-100" alt="{{$slider->title}}">
+
                         </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="/client/img/1883.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="/client/img/1957.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="/client/img/2001.jpg" class="d-block w-100" alt=""></a>
-                        </div>
-                        <div class="carousel-item">
-                            <a href="#"><img src="/client/img/2012.jpg" class="d-block w-100" alt=""></a>
-                        </div>
+                            @endforeach
+                            @endif
                     </div>
                     <a class="carousel-control-prev prev" href="#myCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

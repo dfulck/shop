@@ -70,15 +70,8 @@ class category extends Model
             ->first();
     }
 
-    public function HasCategoryProductChildiren()
+    public function HasCategoryChildirenProduct()
     {
-        $parent = $this->parent()->first();
-
-        $childiren = $parent->childiren()->limit(3)->get();
-
-        return $childiren;
+     return product::all();
     }
-
-
-
 }

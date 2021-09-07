@@ -20,6 +20,9 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\CategoryDiscountController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\OfferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,15 +53,21 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('propertyGroups',PropertyGroupController::class);
     Route::resource('properties',PropertyController::class);
     Route::resource('product.properties',ProductPropertyController::class);
+    Route::resource('sliders',SliderController::class);
+    Route::resource('notifications',NotificationController::class);
+    Route::resource('category.discount',CategoryDiscountController::class);
+    Route::resource('offers',OfferController::class);
 });
+Route::post('/cart/{product}',[CartController::class,'store']);
+Route::post('/like/{product}',[LikeController::class,'store'])->name('like');
+Route::get('/like/index',[LikeController::class,'index'])->name('like.index');
+Route::post('/like/delete/{product}',[LikeController::class,'delete'])->name('dislike');
 Route::resource('products.cart',CartController::class);
-Route::resource('notifications',NotificationController::class);
-Route::resource('category.discount',CategoryDiscountController::class);
 Route::get('/product/{product}/details',[ProductController::class,'details'])->name('product.details');
 Route::patch('/product/{product}/properties/value',[ProductPropertyController::class,'updateValue'])->name('product.properties.updateValue');
 Route::resource('questions.answer',AnswerController::class);
 Route::resource('product.questions',QuestionController::class);
-Route::resource('product.answers',QuestionController::class);
+Route::resource('product.answers',AnswerController::class);
 Route::post('/product/{product}/rate',[RateController::class,'store'])->name('product.rate');
 Route::get('/panel/products/{product}',[ProductController::class,'show'])->name('products.show');
 Route::resource('users',userController::class);
