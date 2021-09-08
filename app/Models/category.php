@@ -72,6 +72,10 @@ class category extends Model
 
     public function HasCategoryChildirenProduct()
     {
-     return product::all();
+        $items=collect($this->getAllSubCategoryProducts())->filter(function ($item){
+            return $item;
+        });
+
+        return $items;
     }
 }

@@ -13,6 +13,11 @@ class product extends Model
 
     protected $guarded=[];
 
+    protected $appends=[
+      'cost_with_discount',
+      'image_path'
+    ];
+
     public static function find($productId)
     {
         return self::query()->where('id',$productId)->firstOrFail();
@@ -126,6 +131,11 @@ class product extends Model
         return $this->belongsToMany(User::class,'likes')
             ->withTimestamps()
             ;
+    }
+
+    public function getImagePathAttribute()
+    {
+       return str_replace('public', '/storage', $this->image);
     }
 
 }

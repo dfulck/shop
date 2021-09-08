@@ -58,7 +58,9 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('category.discount',CategoryDiscountController::class);
     Route::resource('offers',OfferController::class);
 });
-Route::post('/cart/{product}',[CartController::class,'store']);
+Route::get('/ShopingCart',[CartController::class,'index'])->name('shopingcart');
+Route::post('/cart/{product}',[CartController::class,'store'])->name('addCart');
+Route::delete('/DeleteCart/{product}',[CartController::class,'destroy'])->name('destroyCart');
 Route::post('/like/{product}',[LikeController::class,'store'])->name('like');
 Route::get('/like/index',[LikeController::class,'index'])->name('like.index');
 Route::post('/like/delete/{product}',[LikeController::class,'delete'])->name('dislike');

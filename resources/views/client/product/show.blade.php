@@ -129,12 +129,12 @@
                                     </ul>
                                 </div>
                                 @if(!$product->users()->exists())
-                                <div class="form-group">
-                                    <input type="submit" value="ثبت نظر" class="btn btn-success-outline">
-                                </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="ثبت نظر" class="btn btn-success-outline">
+                                    </div>
                                 @else
                                     <h3>shoma yekbar nazar dadid</h3>
-                                    @endif
+                                @endif
                             </form>
                         @else
                             <p>لطفا برای نظر دهی به این محصول وارد جساب کاربری شوید</p>
@@ -154,8 +154,8 @@
                                         <form method="post">
                                             <div class="qty">
                                                 <label class="control-label" for="input-quantity">تعداد</label>
-                                                <input type="number" name="quantity" value="1" maxlength="20" max="20"
-                                                       id="input-quantity" class="form-control"/>
+                                                <input type="number" name="quantity" id="input-quantity" value="1" maxlength="20" max="20"
+                                                       class="form-control input-quantity"/>
                                                 <div class="clear"></div>
                                             </div>
                                             <button type="button" id="button-cart"
@@ -695,8 +695,7 @@
 
                                         <div class="row" style="position: relative;top: 100px">
                                             <div class="col-md-5 col-6">
-                                    <span class="date">{{$question->created_at}}
-</span>
+                                    <span class="date">{{$question->created_at}}</span>
                                             </div>
                                             <div class="col-md-7 col-6 text-right">
                                                 <p class="d-none d-sm-block">
