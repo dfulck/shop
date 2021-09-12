@@ -13,6 +13,10 @@
                     <input class="form-control" type="text" id="code" name="code">
                 </div>
                 <div class="form-group">
+                    <label class="text-dark font-size-30  text-bold" for="discount">discount</label>
+                    <input class="form-control" type="text" id="discount" name="discount">
+                </div>
+                <div class="form-group">
                     <label class="text-dark font-size-30  text-bold" for="starts_at">starts at</label>
                     <input type="date" id="starts_at" name="starts_at" class="form-control">
                 </div>

@@ -111,4 +111,8 @@ class User extends Authenticatable
         $this->likes()->detach($product);
     }
 
+    public function wallet()
+    {
+        return $this->hasOne(wallet::class);
+    }
 }

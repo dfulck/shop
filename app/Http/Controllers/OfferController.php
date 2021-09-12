@@ -39,6 +39,7 @@ class OfferController extends Controller
     {
         offer::query()->create([
             'code'=>$request->get('code'),
+            'discount'=>$request->get('discount'),
             'starts_at'=>$request->get('starts_at'),
             'expires_at'=>$request->get('expires_at'),
         ]);
@@ -91,6 +92,7 @@ class OfferController extends Controller
 
         $offer->update([
             'code' => $request->get('code'),
+            'discount'=>$request->get('discount'),
             'starts_at' => $request->get('starts_at'),
             'expires_at' => $request->get('expires_at'),
         ]);

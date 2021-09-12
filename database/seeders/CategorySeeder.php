@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\category;
+use Database\Factories\CategoryFactory;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -14,9 +16,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        category::query()->create([
+       $category= category::query()->create([
             'title'=>'دسته بندی اصلی',
             'category_id'=>null,
         ]);
+
+       category::factory()->times(10)->create();
     }
 }

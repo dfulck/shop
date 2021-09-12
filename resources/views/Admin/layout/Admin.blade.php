@@ -477,6 +477,21 @@
                         @endif
                     </ul>
                 </li>
+{{--                wallet--}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>wallet</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                            <li><a href="{{route('wallet.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                            <li><a href="{{route('wallet.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                    </ul>
+                </li>
                 {{--                users--}}
                 <li class="treeview">
                     <a href="#">

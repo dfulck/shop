@@ -384,6 +384,7 @@
         if($('#input-quantity').length){
             quantity = $('#input-quantity').val();
         }
+
         $.ajax({
             type: "post",
             url: "/cart/" + productId,
@@ -406,10 +407,10 @@
                         + '<td class="text-left"><a href="product.html">' + product.name +'</a></td>'
                         + '<td class="text-right">x' + productQty +'</td>'
                         + '<td class="text-right">' + product.cost_with_discount + ' تومان</td>'
-                        + '<td class="text-right">' + product.cost_with_discount*productQty + ' تومان</td>'
                         + '<td class="text-center"><button class="btn btn-danger btn-xs remove" title="حذف" onClick="removeFromCart(' + product.id + ')" type="button"><i class="fa fa-times"></i></button></td>'
                         + '</tr>'
                     );
+
                 }
 
 
@@ -436,10 +437,10 @@
             success: function (data){
                 var product = data.cart[productId]['product'];
                 var productQty = data.cart[productId]['quantity'];
-                console.log(productQty);
                 $('.total-items').text(data.cart.total_items);
                 $('.total-amount').text(data.cart.total_amount);
                 $('#total-amount-'+productId).text(product.cost_with_discount * productQty);
+                $('#input-quantity-'+productId).text(productQty);
             }
         })
 

@@ -23,6 +23,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\WalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +60,13 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('category.discount',CategoryDiscountController::class);
     Route::resource('offers',OfferController::class);
 });
+Route::resource('wallet',WalletController::class);
+Route::post('/Order/store',[OrderController::class,'store'])->name('Orders.store');
+Route::get('/Order/create',[OrderController::class,'create'])->name('Orders.create');
 Route::get('/ShopingCart',[CartController::class,'index'])->name('shopingcart');
 Route::post('/cart/{product}',[CartController::class,'store'])->name('addCart');
 Route::delete('/DeleteCart/{product}',[CartController::class,'destroy'])->name('destroyCart');
+Route::delete('/UpdateCart/{product}',[CartController::class,'update'])->name('destroyCart');
 Route::post('/like/{product}',[LikeController::class,'store'])->name('like');
 Route::get('/like/index',[LikeController::class,'index'])->name('like.index');
 Route::post('/like/delete/{product}',[LikeController::class,'delete'])->name('dislike');

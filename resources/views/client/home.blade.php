@@ -1068,19 +1068,20 @@
     <!--start sldier-->
     {{--    product--}}
     <div class="container-fluid mt-3">
+        @foreach($categories as $category)
         <div class="row">
             <div class="col-12">
                 <section class="slider box_shadow">
-                    @foreach($categories as $category)
-                        @if($category->childiren()->exists())
+{{--                        @if($category->childiren()->exists())--}}
                         <div class="card panel-title-custom">
                             <div class="card-header card-header-custom">
                                 <p>{{$category->title}}</p>
                             </div>
+                            @foreach($category->childiren as $child)
+                                @foreach($child->getAllSubCategoryProducts() as $product)
                             <div class="card-body">
                                 <div class="owl-carousel owl-theme">
-                                    @foreach($category->childiren as $child)
-                                        @foreach($child->getAllSubCategoryProducts() as $product)
+
                                         <div class="item">
                                             <a href="{{route('products.show',$product)}}">
                                                 <div class="card panel-custom">
@@ -1112,18 +1113,17 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        @endforeach
-                                    @endforeach
+
                                 </div>
                             </div>
+                                @endforeach
+                            @endforeach
                         </div>
-
-                    @endif
-                    @endforeach
+{{--                    @endif--}}
                 </section>
             </div>
         </div>
-
+        @endforeach
     </div>
     {{--   end product--}}
     <!--start ads-->

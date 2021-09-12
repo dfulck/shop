@@ -9,13 +9,14 @@
             <div class="content-header">
                 <div class="d-flex align-items-center">
                     <div class="mr-auto">
-                        <h3 class="page-title">offers</h3>
+                        <h3 class="page-title">برند ها</h3>
                         <div class="d-inline-block align-items-center">
                             <nav>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a>
                                     </li>
-                                    <li class="breadcrumb-item" aria-current="page">offer</li>
+                                    <li class="breadcrumb-item" aria-current="page">برند</li>
+                                    <li class="breadcrumb-item active" aria-current="page">برند ها</li>
                                 </ol>
                             </nav>
                         </div>
@@ -32,7 +33,7 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">offer</h3>
+                                <h3 class="box-title">لیست برند ها</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -41,28 +42,24 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>code</th>
-                                            <th>discount</th>
-                                            <th>زمان start</th>
-                                            <th>زمان end</th>
+                                            <th>amount</th>
+                                            <th>last charge</th>
                                             <th>زمان ایجاد</th>
                                             <th>ویرایش</th>
                                             <th>حذف</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($offers as $offer)
+                                        @foreach($wallets as $wallet)
                                             <tr>
-                                                <th>{{$offer->id}}</th>
-                                                <th>{{$offer->code}}</th>
-                                                <th>{{$offer->discount}}</th>
-                                                <th>{{$offer->starts_at}}</th>
-                                                <th>{{$offer->expires_at}}</th>
-                                                <th>{{$offer->created_at}}</th>
+                                                <th>{{$wallet->id}}</th>
+                                                <th>{{$wallet->amount}}</th>
+                                                <th>{{optional($wallet)->charge}}</th>
+                                                <th>{{$wallet->created_at}}</th>
                                                 <th><a class="btn btn-outline-info"
-                                                       href="{{route('offers.edit',$offer)}}">ویرایش</a></th>
+                                                       href="{{route('wallet.edit',$wallet)}}">ویرایش</a></th>
                                                 <th>
-                                                    <form method="post" action="{{route('offers.destroy',$offer)}}">
+                                                    <form method="post" action="{{route('wallet.destroy',$wallet)}}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="submit" class="btn btn-outline-danger" value="حذف">
