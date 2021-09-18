@@ -1,7 +1,6 @@
 @php
     use App\Models\Cart;
 @endphp
-
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,13 +44,19 @@
                 </span>
         </div>
         <div class="col-lg-6 col-md-4 col-sm-3 col-6">
-            <form>
+            <form action="/search" method="get" >
+                @csrf
                 <div class="input-group input-group-sm">
-                    <input type="text" class="form-control rounded-right input_search"
+                    <input type="text" name="title" class="form-control rounded-right input_search"
                            placeholder="نام کالا , برند و یا دسته مورد نظر خود را جستجو کنید..">
+                    <select name="model" id="">
+                        <option value="category">Category</option>
+                        <option value="permission">permission</option>
+                        <option value="product">product</option>
+                    </select>
                     <div class="input-group-prepend">
                         <div class="input-group-text custom-input-group-text rounded-left">
-                            <a href="#"><i class="material-icons">search</i></a>
+                            <input type="submit" value="search" class="bg-danger" ><i class="material-icons">search</i>
                         </div>
                     </div>
                 </div>
@@ -344,10 +349,7 @@
     }
 
     function like(productId) {
-
-
         $.ajax({
-
             success: function (data) {
                 // console.log($('#like-' + productId + '>.btn-like'))
 
@@ -380,11 +382,9 @@
     function addToCart(productId)
     {
         var quantity = 1;
-
         if($('#input-quantity').length){
             quantity = $('#input-quantity').val();
         }
-
         $.ajax({
             type: "post",
             url: "/cart/" + productId,
@@ -422,11 +422,9 @@
     function updateCart(productId)
     {
         var quantity = 1;
-
         if($('#input-quantity-' + productId).length){
             quantity = $('#input-quantity-'  + productId).val();
         }
-
         $.ajax({
             type: "post",
             url: "/cart/" + productId,

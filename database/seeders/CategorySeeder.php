@@ -21,6 +21,6 @@ class CategorySeeder extends Seeder
             'category_id'=>null,
         ]);
 
-       category::factory()->times(10)->create();
+//       category::factory()->times(10)->create();
     }
 }

@@ -109,5 +109,6 @@ class OfferController extends Controller
     public function destroy(offer $offer)
     {
         $offer->delete();
+        return redirect(route('offers.index'));
     }
 }

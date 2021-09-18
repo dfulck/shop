@@ -25,6 +25,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WalletController;
+use App\Http\Controllers\CatdiscountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,9 @@ Route::prefix('/panel')->middleware('auth')->group(function (){
     Route::resource('category.discount',CategoryDiscountController::class);
     Route::resource('offers',OfferController::class);
 });
+Route::post('/offer',[CartController::class,'offer']);
+Route::resource('catdiscounts',CatdiscountController::class);
+Route::get('/search',[home::class,'search']);
 Route::resource('wallet',WalletController::class);
 Route::post('/Order/store',[OrderController::class,'store'])->name('Orders.store');
 Route::get('/Order/create',[OrderController::class,'create'])->name('Orders.create');

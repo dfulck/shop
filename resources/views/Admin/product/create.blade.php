@@ -34,11 +34,7 @@
                             <option value="" disabled selected>دسته بندی مورد نظر را انتخاب کنید</option>
                             <option value="{{$category->id}}"  >انتخاب این دسته بندی</option>
                             @foreach($category->childiren as $cat)
-                                <option
-                                    @if($cat->childiren)
-                                        disabled
-                                        @endif
-                                    value="{{$cat->id}}">{{$cat->title}}</option>
+                                <option value="{{$cat->id}}">{{$cat->title}}</option>
                                 @foreach($cat->childiren as $category3)
                                     <option value="{{$category3->id}}">{{$category3->title}}</option>
                                 @endforeach

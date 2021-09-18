@@ -11,8 +11,9 @@
         <div class="col-sm-12">
             <h1>ایجاد code </h1>
             @include('Admin.layout.notification')
-            <form class="form-control font-size-20" action="{{route('offers.store')}}" method="post">
+            <form class="form-control font-size-20" action="{{route('offers.update',$offer)}}" method="post">
                 @csrf
+                @method('PATCH')
                 <div class="form-group">
                     <label class="text-dark font-size-30  text-bold" for="code">code</label>
                     <input class="form-control" type="text" value="{{$offer->code}}" id="code" name="code">

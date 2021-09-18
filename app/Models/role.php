@@ -28,6 +28,7 @@ class role extends Model
 
         return $this->permissions()->where('id',$parameter->id)->exists();
 
+
    }
 
     public static function findByTitle($title)

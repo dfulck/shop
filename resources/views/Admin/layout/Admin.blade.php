@@ -511,6 +511,25 @@
                         @endif
                     </ul>
                 </li>
+{{--                discount category --}}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="mdi mdi-contacts"></i>
+                        <span>discount categry</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        @if($user->HasRolePermission('create_user'))
+                            <li><a href="{{route('catdiscounts.create')}}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد</a>
+                            </li>
+                        @endif
+                        @if($user->HasRolePermission('index_user'))
+                            <li><a href="{{route('catdiscounts.index')}}"><i class="mdi mdi-toggle-switch-off"></i>لیست</a></li>
+                        @endif
+                    </ul>
+                </li>
                 {{--                PropertyGroup--}}
                 <li class="treeview">
                     <a href="#">
