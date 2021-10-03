@@ -6,30 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/Admin/./images/favicon.ico">
+    <link rel="icon" href="{{url('')}}/Admin/./images/favicon.ico">
 
-    <title>Superieur Admin - Dashboard</title>
+    <title>erfan asgharzade 9701132014</title>
 
     <!-- Bootstrap 4.0-->
-    <link rel="stylesheet" href="/Admin/./assets/vendor_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/Admin/./assets/vendor_components/bootstrap/dist/css/bootstrap.css">
 
     <!-- Bootstrap extend-->
-    <link rel="stylesheet" href="/Admin/css/bootstrap-extend.css">
+    <link rel="stylesheet" href="{{url('')}}/Admin/css/bootstrap-extend.css">
 
     <!-- theme style -->
-    <link rel="stylesheet" href="/Admin/css/master_style.css">
+    <link rel="stylesheet" href="{{url('')}}/Admin/css/master_style.css">
 
     <!-- Superieur Admin skins -->
-    <link rel="stylesheet" href="/Admin/css/skins/_all-skins.css">
+    <link rel="stylesheet" href="{{url('')}}/Admin/css/skins/_all-skins.css">
 
     <!-- daterange picker -->
-    <link rel="stylesheet" href="/Admin/./assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="{{url('')}}/Admin/./assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css">
 
     <!-- Morris charts -->
-    <link rel="stylesheet" href="/Admin/./assets/vendor_components/morris.js/morris.css">
+    <link rel="stylesheet" href="{{url('')}}/Admin/./assets/vendor_components/morris.js/morris.css">
 
     <!-- Data Table-->
-    <link rel="stylesheet" type="text/css" href="/Admin/./assets/vendor_components/datatable/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{url('')}}/Admin/./assets/vendor_components/datatable/datatables.min.css"/>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,7 +41,7 @@
 
 
 </head>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{url('')}}//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
@@ -54,13 +54,13 @@
         <a href="index.html" class="logo">
             <!-- mini logo -->
             <div class="logo-mini">
-                <span class="light-logo"><img src="/Admin/./images/logo-light.png" alt="logo"></span>
-                <span class="dark-logo"><img src="/Admin/./images/logo-dark.png" alt="logo"></span>
+                <span class="light-logo"><img src="{{url('')}}/Admin/./images/logo-light.png" alt="logo"></span>
+                <span class="dark-logo"><img src="{{url('')}}/Admin/./images/logo-dark.png" alt="logo"></span>
             </div>
             <!-- logo-->
             <div class="logo-lg">
-                <span class="light-logo"><img src="/Admin/./images/logo-light-text.png" alt="logo"></span>
-                <span class="dark-logo"><img src="/Admin/./images/logo-dark-text.png" alt="logo"></span>
+                <span class="light-logo"><img src="{{url('')}}/Admin/./images/logo-light-text.png" alt="logo"></span>
+                <span class="dark-logo"><img src="{{url('')}}/Admin/./images/logo-dark-text.png" alt="logo"></span>
             </div>
         </a>
         <!-- Header Navbar -->
@@ -84,14 +84,14 @@
                     <!-- User Account-->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/Admin/./images/OP.jpg" class="user-image rounded-circle" alt="User Image"><span>  porofile</span>
+                            <img src="{{url('')}}/Admin/./images/OP.jpg" class="user-image rounded-circle" alt="User Image"><span>  porofile</span>
                         </a>
                         <ul class="dropdown-menu animated flipInY">
                             <!-- User image -->
                             <li class="user-header bg-img" style="background-image: url(/Admin/./images/user-info.jpg)"
                                 data-overlay="3">
                                 <div class="flexbox align-self-center">
-                                    <img src="/Admin/./images/avatar/7.jpg" class="float-left rounded-circle"
+                                    <img src="{{url('')}}/Admin/./images/avatar/7.jpg" class="float-left rounded-circle"
                                          alt="User Image">
                                     <h4 class="user-name align-self-center">
                                         <span>{{$user->name}}</span>
@@ -147,7 +147,7 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user2-160x160.jpg" class="rounded-circle"
+                                                <img src="{{url('')}}/Admin/./images/user2-160x160.jpg" class="rounded-circle"
                                                      alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
@@ -163,7 +163,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user3-128x128.jpg" class="rounded-circle"
+                                                <img src="{{url('')}}/Admin/./images/user3-128x128.jpg" class="rounded-circle"
                                                      alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
@@ -178,7 +178,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user4-128x128.jpg" class="rounded-circle"
+                                                <img src="{{url('')}}/Admin/./images/user4-128x128.jpg" class="rounded-circle"
                                                      alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
@@ -193,7 +193,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user3-128x128.jpg" class="rounded-circle"
+                                                <img src="{{url('')}}/Admin/./images/user3-128x128.jpg" class="rounded-circle"
                                                      alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
@@ -208,7 +208,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="/Admin/./images/user4-128x128.jpg" class="rounded-circle"
+                                                <img src="{{url('')}}/Admin/./images/user4-128x128.jpg" class="rounded-circle"
                                                      alt="User Image">
                                             </div>
                                             <div class="mail-contnet">
@@ -887,10 +887,10 @@
 
 
 <!-- jQuery 3 -->
-<script src="/Admin/./assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
 
 <!-- jQuery UI 1.11.4 -->
-<script src="/Admin/./assets/vendor_components/jquery-ui/jquery-ui.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/jquery-ui/jquery-ui.js"></script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
@@ -898,39 +898,39 @@
 </script>
 
 <!-- popper -->
-<script src="/Admin/./assets/vendor_components/popper/dist/popper.min.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/popper/dist/popper.min.js"></script>
 
 <!-- date-range-picker -->
-<script src="/Admin/./assets/vendor_components/moment/min/moment.min.js"></script>
-<script src="/Admin/./assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/moment/min/moment.min.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 
 <!-- Bootstrap 4.0-->
-<script src="/Admin/./assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>
 
 <!-- ChartJS -->
-<script src="/Admin/./assets/vendor_components/chart.js-master/Chart.min.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/chart.js-master/Chart.min.js"></script>
 
 <!-- Slimscroll -->
-<script src="/Admin/./assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
 
 <!-- FastClick -->
-<script src="/Admin/./assets/vendor_components/fastclick/lib/fastclick.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/fastclick/lib/fastclick.js"></script>
 
 <!-- Morris.js charts -->
-<script src="/Admin/./assets/vendor_components/raphael/raphael.min.js"></script>
-<script src="/Admin/./assets/vendor_components/morris.js/morris.min.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/raphael/raphael.min.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/morris.js/morris.min.js"></script>
 
 <!-- This is data table -->
-<script src="/Admin/./assets/vendor_components/datatable/datatables.min.js"></script>
+<script src="{{url('')}}/Admin/./assets/vendor_components/datatable/datatables.min.js"></script>
 
 <!-- Superieur Admin App -->
-<script src="/Admin/js/template.js"></script>
+<script src="{{url('')}}/Admin/js/template.js"></script>
 
 <!-- Superieur Admin dashboard demo (This is only for demo purposes) -->
-<script src="/Admin/js/pages/dashboard.js"></script>
+<script src="{{url('')}}/Admin/js/pages/dashboard.js"></script>
 
 <!-- Superieur Admin for demo purposes -->
-<script src="/Admin/js/demo.js"></script>
+<script src="{{url('')}}/Admin/js/demo.js"></script>
 
 @yield('script')
 

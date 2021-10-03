@@ -8,30 +8,30 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>دیجی کالا</title>
+    <title>erfan asgharzade 9701132014</title>
     <!--bootstrap css-->
-    <link rel="stylesheet" href="/client/css/bootstrap.css">
-    <link rel="stylesheet" href="/client/css/bootstrap-rtl.css">
-    <link rel="stylesheet" href="/client/css/icon.css">
-    <link rel="stylesheet" href="/client/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/client/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/client/css/slider/cssfull.css">
-    <link rel="stylesheet" href="/client/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/client/css/style.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/bootstrap.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/bootstrap-rtl.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/icon.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/slider/cssfull.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url('')}}/client/css/style.css">
 
-    <link rel="stylesheet" href="/client/css/slider/css1.css" media="screen and (max-width: 1365px)"/>
-    <link rel="stylesheet" href="/client/css/slider/css2.css" media="screen and (min-width: 1366px)"/>
-    <link rel="stylesheet" href="/client/css/slider/css3.css" media="screen and (min-width: 1680px)"/>
+    <link rel="stylesheet" href="{{url('')}}/client/css/slider/css1.css" media="screen and (max-width: 1365px)"/>
+    <link rel="stylesheet" href="{{url('')}}/client/css/slider/css2.css" media="screen and (min-width: 1366px)"/>
+    <link rel="stylesheet" href="{{url('')}}/client/css/slider/css3.css" media="screen and (min-width: 1680px)"/>
     <!--bootstrap js-->
-    <script src="/client/js/popper.min.js"></script>
-    <script src="/client/js/jquery.min.js"></script>
-    <script src="/client/js/bootstrap.js"></script>
-    <script src="/client/js/slider1.js"></script>
-    <script src="/client/js/slider2.js"></script>
-    <script src="/client/js/owl.carousel.min.js"></script>
-    <script src="/client/js/custom.js"></script>
+    <script src="{{url('')}}/client/js/popper.min.js"></script>
+    <script src="{{url('')}}/client/js/jquery.min.js"></script>
+    <script src="{{url('')}}/client/js/bootstrap.js"></script>
+    <script src="{{url('')}}/client/js/slider1.js"></script>
+    <script src="{{url('')}}/client/js/slider2.js"></script>
+    <script src="{{url('')}}/client/js/owl.carousel.min.js"></script>
+    <script src="{{url('')}}/client/js/custom.js"></script>
 </head>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{url('')}}//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <body>
@@ -60,6 +60,14 @@
                         </div>
                     </div>
                 </div>
+                @if($SearchTitle)
+                @foreach($SearchTitle as $title)
+                <select class="form-control mt-1">
+                    <option value="">{{$title->title}}</option>
+                    <option value="">{{$title->name}}</option>
+                </select>
+                @endforeach
+                    @endif
             </form>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-3 col-6 dropdown_custom text-right">
@@ -165,14 +173,14 @@
         <div class="mr-auto">
             <ul class="navbar-nav special_sale">
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white">فروش ویژه</a>
+                    <a href="" class="nav-link text-white">پروژه دانشگاهی -- عرفان اصغرزاده --9701132014</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <!--start top banner-->
-<a href="#">
+<a href="">
     <div class="container-fluid mt-2 ">
         <div class="top_banner box_shadow ">
             <div></div>
@@ -190,19 +198,19 @@
 <div class="container-fluid pt-2 bg_footer">
     <div class="row">
         <div class="col-md-3 col-6 serv text-center">
-            <img src="/client/img/serv3.svg" alt="">
+            <img src="{{url('')}}/client/img/serv3.svg" alt="">
             <p>ضمانت اصل بودن کالا</p>
         </div>
         <div class="col-md-3 col-6 serv text-center">
-            <img src="/client/img/serv4.svg" alt="">
+            <img src="{{url('')}}/client/img/serv4.svg" alt="">
             <p>هفت روز ضمانت بازگشت</p>
         </div>
         <div class="col-md-3 col-6 serv text-center">
-            <img src="/client/img/serv2.svg" alt="">
+            <img src="{{url('')}}/client/img/serv2.svg" alt="">
             <p>پرداخت درب منزل</p>
         </div>
         <div class="col-md-3 col-6 serv text-center">
-            <img src="/client/img/serv5.svg" alt="">
+            <img src="{{url('')}}/client/img/serv5.svg" alt="">
             <p>پشتیبانی همه روزه</p>
         </div>
     </div>
@@ -260,7 +268,7 @@
                     <p class="pt-4">دیجی‌کالا را در شبکه‌های اجتماعی دنبال کنید:
                     </p>
                     <div class="social_instagram text-center">
-                        <a href="#"><img src="/client/img/instagrams.svg" class="px-1" alt="">اینستاگرام دیجی کالا</a>
+                        <a href="#"><img src="{{url('')}}/client/img/instagrams.svg" class="px-1" alt="">اینستاگرام دیجی کالا</a>
                     </div>
                 </div>
             </div>
@@ -271,14 +279,14 @@
             <div class="footer_box_right ml-auto">
                 <p>هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</p>
                 <ul class="list-inline">
-                    <li class="list-inline-item">شماره تماس :<a href="#">۶۱۹۳۰۰۰۰ - ۰۲۱,۹۵۱۱۹۰۹۵ - ۰۲۱ </a></li>
-                    <li class="list-inline-item">آدرس ایمیل :<a href="#">info@digikala.com
+                    <li class="list-inline-item">شماره تماس :<a href="">۶۱۹۳۰۰۰۰ - ۰۲۱,۹۵۱۱۹۰۹۵ - ۰۲۱ </a></li>
+                    <li class="list-inline-item">آدرس ایمیل :<a href="">info@digikala.com
                         </a></li>
                 </ul>
             </div>
             <div class="footer_box_left mr-auto">
-                <a href="#"><img src="/client/img/bazar.png"> </a>
-                <a href="#"><img src="/client/img/sibapp.png"> </a>
+                <a href=""><img src="{{url('')}}/client/img/bazar.png"> </a>
+                <a href=""><img src="{{url('')}}/client/img/sibapp.png"> </a>
             </div>
         </div>
     </div>
@@ -293,15 +301,15 @@
         </div>
         <div class="col-md-5 col-12 box_banner  ">
             <div class="row ">
-                <img src="/client/img/img_footer.JPG" class="img-fluid" alt="">
+                <img src="{{url('')}}/client/img/img_footer.JPG" class="img-fluid" alt="">
             </div>
         </div>
     </div>
     <div class="row pt-4 text-center">
-        <div class="col-md-3 col-6"><a href=""><img src="/client/img/img_footer1.svg" alt=""></a></div>
-        <div class="col-md-3 col-6"><a href=""><img src="/client/img/img_footer2.svg" alt=""></a></div>
-        <div class="col-md-3 col-6 pt-2"><a href=""><img src="/client/img/img_footer3.svg" alt=""></a></div>
-        <div class="col-md-3 col-6"><a href=""><img src="/client/img/img_footer4.svg" alt=""></a></div>
+        <div class="col-md-3 col-6"><a href=""><img src="{{url('')}}/client/img/img_footer1.svg" alt=""></a></div>
+        <div class="col-md-3 col-6"><a href=""><img src="{{url('')}}/client/img/img_footer2.svg" alt=""></a></div>
+        <div class="col-md-3 col-6 pt-2"><a href=""><img src="{{url('')}}/client/img/img_footer3.svg" alt=""></a></div>
+        <div class="col-md-3 col-6"><a href=""><img src="{{url('')}}/client/img/img_footer4.svg" alt=""></a></div>
     </div>
     <div class="container border_bottom1 pt-4 "></div>
     <div class="container text-center copyRight pt-4">
@@ -403,7 +411,7 @@
 
                     $('#cart-table-body:last-child').append(
                         '<tr id="cart-row-' + product.id +'">'
-                        + '<td class="text-center"><a href="product.html"><img width="100"  class="img-thumbnail" title="'+ product.name +'" alt="' + product.name + '" src="' + product.image_path +'"></a></td>'
+                        + '<td class="text-center"><a href="product.html"><img width="100"  class="img-thumbnail" title="'+ product.name +'" alt="' + product.name + '" src="{{url('')}}' + product.image_path +'"></a></td>'
                         + '<td class="text-left"><a href="product.html">' + product.name +'</a></td>'
                         + '<td class="text-right">x' + productQty +'</td>'
                         + '<td class="text-right">' + product.cost_with_discount + ' تومان</td>'

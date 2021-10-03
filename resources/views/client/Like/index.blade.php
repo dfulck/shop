@@ -34,7 +34,7 @@
                             <tbody>
                             @foreach($products as $product)
                                 <tr>
-                                    <td class="text-center"><a href="{{route('products.show',$product)}}"><img width="100" src="{{str_replace('public', '/storage', $product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" /></a></td>
+                                    <td class="text-center"><a href="{{route('products.show',$product)}}"><img width="100" src="{{url('/storage/app/'.$product->image)}}" alt="{{$product->name}}" title="{{$product->name}}" /></a></td>
                                     <td class="text-left"><a href="{{route('products.show',$product)}}">{{$product->name}}</a></td>
                                     <td class="text-left">{{$product->category->title}}</td>
                                     <td class="text-right"><div class="price">{{$product->cost}}</div></td>

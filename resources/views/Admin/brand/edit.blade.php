@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group">
                     <label class="text-dark font-size-30  text-bold" for="image">تصویر</label>
-                    <img width="120" src="/{{str_replace('public','storage',$brand->image)}}" alt="{{$brand->name}}">
+                    <img width="120" src="{{url('/storage/app/'.$brand->image)}}" alt="{{$brand->name}}">
                     <input type="file" name="image">
                 </div>
                 <div class="form-group">

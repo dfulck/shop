@@ -18,7 +18,7 @@
                          active
                          @endif ">
 
-                            <img height="600" src="{{str_replace('public','/storage',$slider->image)}}" class="d-block w-100" alt="{{$slider->title}}">
+                            <img height="600" src="{{url('/storage/app/'.$slider->image)}}" class="d-block w-100" alt="{{$slider->title}}">
 
                         </div>
                             @endforeach
@@ -1086,7 +1086,7 @@
                                             <a href="{{route('products.show',$product)}}">
                                                 <div class="card panel-custom">
                                                     <div class="card-body panel-body-custom">
-                                                        <img src="{{str_replace('public','storage',$product->image)}}">
+                                                        <img src="{{url('/storage/app/'.$product->image)}}">
                                                     </div>
                                                     <div class="card-footer panel-footer-custom">
                                                         <h4>{{$product->name}}</h4>
@@ -1156,7 +1156,7 @@
                                         <a href="">
                                             <div class="card panel-custom">
                                                 <div class="card-body panel-body-custom">
-                                                    <img src="{{str_replace('public','storage',$brand->image)}}">
+                                                    <img src="{{url('/storage/app/'.$brand->image)}}">
                                                 </div>
                                                 <div class="text text-info">{{$brand->name}}</div>
                                             </div>

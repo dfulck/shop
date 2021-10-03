@@ -46,7 +46,7 @@
                                                 <th>{{$product->slug}}</th>
                                                 <th>{{$product->cost}}</th>
                                                 <th>
-                                                    <img width="70" src="{{str_replace('public','/storage',$product->image)}}" alt="{{$product->name}}">
+                                                    <img width="70" src="{{url('/storage/app/'.$product->image)}}" alt="{{$product->name}}">
                                                 </th>
                                                 <th>
                                                     @if(!$product->discount()->exists())

@@ -34,7 +34,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 'brands'=>brand::all(),
                 'categories'=>category::query()->where('category_id',1)->get(),
-                'sliders'=>slider::all()
+                'sliders'=>slider::all(),
+                'SearchTitle'=>null
                 ]);
         });
         view()->composer('Admin.*',function ($view){

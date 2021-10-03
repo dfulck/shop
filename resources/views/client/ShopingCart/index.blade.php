@@ -40,7 +40,7 @@
                                 <tr class="cart-row-{{$product->id}}">
                                     <td class="text-center">
                                         <a href="product.html">
-                                            <img width="100" src="{{str_replace('public', '/storage', $product->image)}}" alt="تبلت ایسر" title="تبلت ایسر" class="img-thumbnail" />
+                                            <img width="100" src="{{url('/storage/app/'.$product->image)}}" alt="تبلت ایسر" title="تبلت ایسر" class="img-thumbnail" />
                                         </a>
                                     </td>
                                     <td class="text-left"><a href="product.html">{{$product->name}}</a><br />

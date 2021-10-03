@@ -24,7 +24,7 @@ class home extends Controller
 
     public function panel()
     {
-        return view('Admin.panel', [
+        return view('Admin.Panel', [
             'user' => auth()->user()
         ]);
     }
@@ -37,11 +37,14 @@ class home extends Controller
             $search= category::query()->where('title', 'like', '%' . $title . '%')->get();
         }elseif ($request->get('model') == 'permission'){
             $search= permission::query()->where('title', 'like', '%' . $title . '%')->get();
+        }else{
+            $search=product::query()->where('name', 'like', '%' . $title . '%')->get();
         }
-        $search=product::query()->where('name', 'like', '%' . $title . '%')->get();
 
 
-        return $search;
+        return view('client.home',[
+            'SearchTitle'=>$search
+        ]);
 
     }
 

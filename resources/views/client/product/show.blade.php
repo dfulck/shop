@@ -22,13 +22,13 @@
                 <div class="row">
                     <div class="col-lg-9 col-10">
                         <div class="box_img border-bottom text-center pt-0 pt-md-4">
-                            <img src="{{str_replace('public','/storage',$product->image)}}" class="img-fluid">
+                            <img src="{{url('/storage/app/'.$product->image)}}" class="img-fluid">
                         </div>
                         <div class="box_list_img mt-3 pt-0 pt-md-5 text-center">
                             <ul class="list-inline">
                                 @foreach($product->pictures as $pictures)
                                     <li class="list-inline-item"><img width="100"
-                                                                      src="{{str_replace('public','/storage',$pictures->path)}}"
+                                                                      src="{{url('/storage/app/'.$pictures->path)}}"
                                                                       alt="{{$product->brand->name}}"></li>
                                 @endforeach
                             </ul>
@@ -768,7 +768,7 @@
                                         <a href="{{route('products.show',$product)}}">
                                             <div class="card panel-custom">
                                                 <div class="card-body panel-body-custom">
-                                                    <img src="{{str_replace('public','/storage',$product->image)}}">
+                                                    <img src="{{url('/storage/app/'.$product->image)}}">
                                                 </div>
                                                 <div class="card-footer panel-footer-custom">
                                                     <h4>{{$product->name}}</h4>

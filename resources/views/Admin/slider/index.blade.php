@@ -55,7 +55,7 @@
                                                 <th>{{$slider->id}}</th>
                                                 <th>{{$slider->title}}</th>
                                                 <th>
-                                                    <img width="350" src="/{{str_replace('public','storage',$slider->image)}}" alt="{{$slider->name}}">
+                                                    <img width="350" src="{{url('/storage/app/'.$slider->image)}}" alt="{{$slider->name}}">
                                                 </th>
                                                 <th>{{$slider->created_at}}</th>
                                                 <th><a class="btn btn-outline-info"

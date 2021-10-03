@@ -26,7 +26,7 @@
                     @foreach($product->pictures as $picture)
 <div class="col-sm-3 inline">
                     <div class="card">
-                        <img width="300" class="card-img-top img-responsive" src="{{str_replace('public','/storage',$picture->path)}}" alt="Card image cap">
+                        <img width="300" class="card-img-top img-responsive" src="{{url('/storage/app/'.$picture->path)}}" alt="Card image cap">
                         <div class="card-body">
                             <form action="{{route('products.pictures.destroy',['product'=>$product,'picture'=>$picture])}}" method="post">
                                 @csrf

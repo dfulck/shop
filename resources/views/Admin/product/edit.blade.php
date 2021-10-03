@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label class="text-dark font-size-30  text-bold" for="image">تصویر</label>
-                    <img width="120" src="{{str_replace('public','/storage',$product->image)}}" alt="{{$product->name}}">
+                    <img width="120" src="{{url('/storage/app/'.$product->image)}}" alt="{{$product->name}}">
                     <input type="file" name="image" id="image" class="form-control">
                 </div>
                 @foreach($categories as $category)

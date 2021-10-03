@@ -55,7 +55,7 @@
                                                 <th>{{$brand->id}}</th>
                                                 <th>{{$brand->name}}</th>
                                                 <th>
-                                                    <img width="70" src="/{{str_replace('public','storage',$brand->image)}}" alt="{{$brand->name}}">
+                                                    <img width="70" src="{{url('/storage/app/'.$brand->image)}}" alt="{{$brand->name}}">
                                                 </th>
                                                 <th>{{$brand->created_at}}</th>
                                                 <th><a class="btn btn-outline-info"

@@ -24,8 +24,8 @@ class AdminSeeder extends Seeder
         User::query()->create([
             'role_id'=>$role_id->id,
             'name'=>'Erfan',
-            'email'=>'cloberfan@gmail.com',
-            'password'=>bcrypt(126875)
+            'email'=>'mahmoodlu@gmail.com',
+            'password'=>bcrypt(1111)
         ]);
         role::query()->create([
             'title'=>'guest'
